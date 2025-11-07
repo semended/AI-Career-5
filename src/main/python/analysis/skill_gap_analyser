@@ -1,0 +1,256 @@
+from __future__ import annotations
+
+import argparse
+import json
+import math
+from pathlib import Path
+from typing import Dict, Iterable, Mapping, MutableMapping, Optional, Tuple
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description="Сравнение параметров роли и пользователя по JSON-матрицам",
+    )
+    parser.add_argument(
+        "--parameters",
+        required=True,
+        type=Path,
+        help="Путь к файлу Parameters.json с описанием ролей",
+    )
+    parser.add_argument(
+        "--user-parameters",
+        required=True,
+        type=Path,
+        help="Путь к файлу UserParameters.json с данными пользователя",
+    )
+    parser.add_argument(
+        "--role",
+        help=(
+            "Название роли (title) для анализа. Если не указано, используется "
+            "значение targetRole из файла пользователя."
+        ),
+    )
+    parser.add_argument(
+        "--output",
+        type=Path,
+        help=(
+            "Путь к файлу, куда сохранить результат. Если не указан, выводится "
+            "в stdout."
+        ),
+    )
+    parser.add_argument(
+        "--model",
+        default="llama3.1:8b",
+        help="Имя модели в Ollama (например, llama3.1:8b или llama3.1:70b)",
+    )
+    parser.add_argument(
+        "--ollama-endpoint",
+        default="http://localhost:11434/api/generate",
+        help="URL локального эндпоинта Ollama, который принимает запросы",
+    )
+    return parser.parse_args()
+
+
+def load_json(path: Path) -> MutableMapping[str, object]:
+    try:
+        with path.open("r", encoding="utf-8") as fh:
+            return json.load(fh)
+    except FileNotFoundError as exc:
+        raise SystemExit(f"Файл {path} не найден: {exc}") from exc
+    except json.JSONDecodeError as exc:
+        raise SystemExit(f"Не удалось разобрать JSON {path}: {exc}") from exc
+
+
+def normalize_skill_levels(raw_skills: Mapping[str, object]) -> Dict[str, float]:
+    normalized: Dict[str, float] = {}
+    for raw_name, raw_value in raw_skills.items():
+        if not isinstance(raw_name, str):
+            raise SystemExit(
+                "Ожидается строковое имя навыка, получено значение другого типа"
+            )
+        name = normalize_skill_name(raw_name)
+        level = extract_numeric_level(raw_value, raw_name)
+        normalized[name] = level
+    return normalized
+
+
+def normalize_skill_name(name: str) -> str:
+    return name.strip().lower()
+
+
+def extract_numeric_level(value: object, skill_name: str) -> float:
+    if isinstance(value, (int, float)):
+        return float(value)
+
+    if isinstance(value, Mapping):
+        for key in ("level", "value", "score"):
+            if key in value:
+                inner = value[key]
+                if isinstance(inner, (int, float)):
+                    return float(inner)
+                try:
+                    return float(inner)  # type: ignore[arg-type]
+                except (TypeError, ValueError) as exc:
+                    raise SystemExit(
+                        f"Невозможно преобразовать {skill_name!r} в число: {inner!r}"
+                    ) from exc
+
+    try:
+        return float(value)  # type: ignore[arg-type]
+    except (TypeError, ValueError) as exc:
+        raise SystemExit(
+            f"Невозможно преобразовать {skill_name!r} в число: {value!r}"
+        ) from exc
+
+
+def choose_role(parameters: Mapping[str, object], requested_role: Optional[str]) -> Tuple[str, Dict[str, float]]:
+    positions = parameters.get("positions")
+    if not isinstance(positions, Iterable):
+        raise SystemExit("Некорректная структура Parameters.json: отсутствует массив positions")
+
+    matched_title = requested_role.strip() if isinstance(requested_role, str) else None
+    matched_position: Optional[Mapping[str, object]] = None
+
+    for position in positions:
+        if not isinstance(position, Mapping):
+            continue
+        title = position.get("title")
+        skills = position.get("skills")
+        if not isinstance(title, str) or not isinstance(skills, Mapping):
+            continue
+
+        if matched_title and title.lower() != matched_title.lower():
+            continue
+        if not matched_title:
+            matched_title = title
+        matched_position = skills
+        if matched_title:
+            break
+
+    if not matched_position or not matched_title:
+        available = [
+            pos.get("title")
+            for pos in positions
+            if isinstance(pos, Mapping) and isinstance(pos.get("title"), str)
+        ]
+        raise SystemExit(
+            "Роль не найдена. Доступные варианты: "
+            + ", ".join(sorted(title for title in available if title))
+        )
+
+    return matched_title, normalize_skill_levels(matched_position)  # type: ignore[arg-type]
+
+
+def collect_user_skills(user_data: Mapping[str, object]) -> Tuple[str, Dict[str, float]]:
+    target_role = extract_target_role(user_data)
+
+    skills_source = user_data.get("skills")
+    profile = user_data.get("profile")
+    if isinstance(profile, Mapping):
+        if skills_source is None:
+            skills_source = profile.get("skills")
+        if not target_role and isinstance(profile.get("targetRole"), str):
+            target_role = profile["targetRole"]  # type: ignore[assignment]
+
+    normalized_skills = parse_user_skills(skills_source)
+    if not normalized_skills:
+        raise SystemExit(
+            "В файле UserParameters.json отсутствует список навыков пользователя"
+        )
+
+    return target_role, normalized_skills
+
+
+def extract_target_role(user_data: Mapping[str, object]) -> str:
+    if isinstance(user_data.get("targetRole"), str):
+        return user_data["targetRole"]  # type: ignore[return-value]
+    profile = user_data.get("profile")
+    if isinstance(profile, Mapping) and isinstance(profile.get("targetRole"), str):
+        return profile["targetRole"]  # type: ignore[return-value]
+    return ""
+
+
+def parse_user_skills(source: object) -> Dict[str, float]:
+    if isinstance(source, Mapping):
+        return normalize_skill_levels(source)
+
+    if isinstance(source, str):
+        tokens = [normalize_skill_name(item) for item in source.split(",")]
+        return {token: 1.0 for token in tokens if token}
+
+    if isinstance(source, Iterable) and not isinstance(source, (str, bytes)):
+        normalized: Dict[str, float] = {}
+        for item in source:
+            if isinstance(item, str):
+                name = normalize_skill_name(item)
+                if name:
+                    normalized[name] = 1.0
+            elif isinstance(item, Mapping):
+                normalized.update(normalize_skill_levels(item))
+            else:
+                raise SystemExit(
+                    "Элементы списка навыков должны быть строками или объектами"
+                )
+        return normalized
+
+    if source is None:
+        return {}
+
+    raise SystemExit(
+        "Навыки пользователя должны быть заданы строкой, списком или объектом"
+    )
+
+
+def compare_skills(
+    required: Mapping[str, float], user: Mapping[str, float]
+) -> Tuple[list[str], list[str]]:
+    strengths: list[str] = []
+    improvements: list[str] = []
+
+    for skill_name, required_level in required.items():
+        if required_level <= 0:
+            continue
+
+        normalized_name = normalize_skill_name(skill_name)
+        user_level = user.get(normalized_name, 0.0)
+
+        if user_level >= required_level or math.isclose(user_level, required_level):
+            strengths.append(normalized_name)
+        else:
+            improvements.append(normalized_name)
+
+    strengths.sort()
+    improvements.sort()
+    return strengths, improvements
+
+
+def main() -> None:
+    args = parse_args()
+
+    parameters_data = load_json(args.parameters)
+    user_data = load_json(args.user_parameters)
+
+    user_target_role, user_skills = collect_user_skills(user_data)
+    requested_role = args.role or user_target_role
+    role_title, required_skills = choose_role(parameters_data, requested_role)
+
+    strengths, improvements = compare_skills(required_skills, user_skills)
+
+    result = {
+        "Целевая роль": role_title,
+        "Навыки удовлетворяющие требованиям": strengths,
+        "Навыки требующие улучшений": improvements,
+    }
+    payload = json.dumps(result, ensure_ascii=False, indent=2)
+
+    if args.output:
+        try:
+            args.output.write_text(payload + "\n", encoding="utf-8")
+        except OSError as exc:
+            raise SystemExit(f"Не удалось записать результат в {args.output}: {exc}") from exc
+    else:
+        print(payload)
+
+
+if __name__ == "__main__":
+    main()
