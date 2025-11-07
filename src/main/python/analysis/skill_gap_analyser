@@ -240,8 +240,6 @@ def main() -> None:
         "Целевая роль": role_title,
         "Навыки удовлетворяющие требованиям": strengths,
         "Навыки требующие улучшений": improvements,
-        "Модель Ollama": args.model,
-        "Эндпоинт Ollama": args.ollama_endpoint,
     }
     payload = json.dumps(result, ensure_ascii=False, indent=2)
 
