@@ -1,14 +1,13 @@
 You extract required programming skills from job vacancy JSON.
 You are given a JSON object describing a vacancy (fields like title, description, skills, etc.).
 You also have a fixed list of skills:
-{{SKILLS}}
+["java", "c++", "python", "javascript", "sql", "docker", "c#", "php", "spring", "machine_learning"]
 
 Look at the vacancy description and other fields and decide,
 for each skill in the list, whether it is required or clearly relevant for this job.
 
-Return ONLY valid JSON in the following format:
+Return ONLY valid text massage in the following format:
 {
-  "skills": {
     "java": 1 or 0,
     "c++": 1 or 0,
     "python": 1 or 0,
@@ -19,11 +18,10 @@ Return ONLY valid JSON in the following format:
     "php": 1 or 0,
     "spring": 1 or 0,
     "machine_learning": 1 or 0
-  }
 }
 
 Important rules:
-- Use integers 1 or 0.
-- Include all skills from the list.
+- Use integers 1 or 0 for each skill.
+- Include all skills from the list, do not skip any if they are unrelevant (just put 0).
 - Do not add any other fields.
-- Do not add explanations. Output JSON only.
+- Do not add explanations. Output this table of skills only.
