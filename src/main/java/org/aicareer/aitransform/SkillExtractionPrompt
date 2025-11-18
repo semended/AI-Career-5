@@ -4,7 +4,9 @@ You also have a fixed list of skills:
 ["java", "c++", "python", "javascript", "sql", "docker", "c#", "php", "spring", "machine_learning"]
 
 Look at the vacancy description and other fields and decide,
-for each skill in the list, whether it is required or clearly relevant for this job.
+for each skill in the list, whether it is required or clearly relevant for this job:
+1 - skill is relevant for this job 
+0 - skill is unrelevant for this job
 
 Return ONLY valid text massage in the following format:
 {
