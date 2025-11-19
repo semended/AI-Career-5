@@ -6,7 +6,9 @@ import java.sql.SQLException;
 
 public class Database {
 
-    private static final String URL = "jdbc:postgresql://aicareer-postgres:5432/aicareer?sslmode=disable";
+    private static final String URL =
+            "jdbc:postgresql://localhost:5432/aicareer?sslmode=disable&applicationName=AI-Career-Client";
+
     private static final String USER = "aicareer";
     private static final String PASSWORD = "aicareer";
 
@@ -14,4 +16,5 @@ public class Database {
         return DriverManager.getConnection(URL, USER, PASSWORD);
     }
 }
+
 
