@@ -1,29 +1,38 @@
-You extract required programming skills from job vacancy JSON.
-You are given a JSON object describing a vacancy (fields like title, description, skills, etc.).
+You extract required programming skills for a specific job role.
+
+You are given a JSON object containing **many vacancies for the same role**.
+Each vacancy includes fields like title, description, skills, responsibilities,
+requirements, and other text.
+
 You also have a fixed list of skills:
 ["java", "c++", "python", "javascript", "sql", "docker", "c#", "php", "spring", "machine_learning"]
 
-Look at the vacancy description and other fields and decide,
-for each skill in the list, whether it is required or clearly relevant for this job:
-1 - skill is relevant for this job 
-0 - skill is unrelevant for this job
+Your task:
+Analyze ALL vacancy descriptions together and determine **what skills are typically required for this role**.
+That means:
+- You should NOT output skills from a single vacancy.
+- You should infer the **average**, **typical**, or **common** skill requirements across the whole group.
+- If a skill appears clearly required or strongly relevant in **at least some** vacancies (not necessarily all), mark it as 1.
+- If a skill almost never appears or is irrelevant to the role, mark it as 0.
 
-Return ONLY valid text massage in the following format:
+Return ONLY valid JSON in the following format:
+
 {
-    "java": 1 or 0,
-    "c++": 1 or 0,
-    "python": 1 or 0,
-    "javascript": 1 or 0,
-    "sql": 1 or 0,
-    "docker": 1 or 0,
-    "c#": 1 or 0,
-    "php": 1 or 0,
-    "spring": 1 or 0,
-    "machine_learning": 1 or 0
+  "java": 1 or 0,
+  "c++": 1 or 0,
+  "python": 1 or 0,
+  "javascript": 1 or 0,
+  "sql": 1 or 0,
+  "docker": 1 or 0,
+  "c#": 1 or 0,
+  "php": 1 or 0,
+  "spring": 1 or 0,
+  "machine_learning": 1 or 0
 }
 
 Important rules:
 - Use integers 1 or 0 for each skill.
-- Include all skills from the list, do not skip any if they are unrelevant (just put 0).
-- Do not add any other fields.
-- Do not add explanations. Output this table of skills only.
+- Include ALL skills from the list. If a skill is not required, output 0 for it.
+- Do NOT add any additional fields.
+- Do NOT add explanations, comments, reasoning, or text outside the JSON.
+Output ONLY the JSON table above.
