@@ -1,17 +1,16 @@
 package org.example.user;
 
-import org.example.db.Database;
-
 import java.sql.*;
 import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.UUID;
+import org.example.db.Database;
 
 public class UserRepository {
 
     public void save(User user) {
         String sql = """
-            INSERT INTO users (id, email, password_hash, name, created_at)
+            INSERT INTO app_users (id, email, password_hash, name, created_at)
             VALUES (?, ?, ?, ?, ?)
         """;
         try (Connection c = Database.get(); PreparedStatement ps = c.prepareStatement(sql)) {
@@ -27,7 +26,7 @@ public class UserRepository {
     }
 
     public Optional<User> findByEmail(String email) {
-        String sql = "SELECT * FROM users WHERE email = ?";
+        String sql = "SELECT * FROM app_users WHERE email = ?";
         try (Connection c = Database.get(); PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setString(1, email);
             ResultSet rs = ps.executeQuery();
@@ -41,7 +40,7 @@ public class UserRepository {
     }
 
     public Optional<User> findByEmailAndPassword(String email, String passwordHash) {
-        String sql = "SELECT * FROM users WHERE email = ? AND password_hash = ?";
+        String sql = "SELECT * FROM app_users WHERE email = ? AND password_hash = ?";
         try (Connection c = Database.get(); PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setString(1, email);
             ps.setString(2, passwordHash);
@@ -57,7 +56,7 @@ public class UserRepository {
 
     public void update(User user) {
         String sql = """
-            UPDATE users SET email = ?, password_hash = ?, name = ? WHERE id = ?
+            UPDATE app_users SET email = ?, password_hash = ?, name = ? WHERE id = ?
         """;
         try (Connection c = Database.get(); PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setString(1, user.getEmail());
@@ -71,7 +70,7 @@ public class UserRepository {
     }
 
     public boolean existsByEmail(String email) {
-        String sql = "SELECT COUNT(*) FROM users WHERE email = ?";
+        String sql = "SELECT COUNT(*) FROM app_users WHERE email = ?";
         try (Connection c = Database.get(); PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setString(1, email);
             ResultSet rs = ps.executeQuery();
