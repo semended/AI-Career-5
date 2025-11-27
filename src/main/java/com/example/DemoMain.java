@@ -1,8 +1,8 @@
-package org.example;
+package com.example;
 
-import org.example.db.Database;
-import org.example.user.*;
-import org.example.profile.*;
+import com.example.db.Database;
+import com.example.user.*;
+import com.example.profile.*;
 
 import java.sql.Connection;
 import java.sql.SQLException;

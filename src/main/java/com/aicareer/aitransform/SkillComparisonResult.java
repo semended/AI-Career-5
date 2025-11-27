@@ -1,4 +1,4 @@
-package org.example;
+package com.aicareer.aitransform;
 
 import java.sql.*;
 import java.util.HashMap;

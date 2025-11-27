@@ -1,10 +1,10 @@
-package org.example.user;
+package com.example.user;
 
 import java.sql.*;
 import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.UUID;
-import org.example.db.Database;
+import com.example.db.Database;
 
 public class UserRepository {
 

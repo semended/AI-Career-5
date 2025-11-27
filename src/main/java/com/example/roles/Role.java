@@ -1,4 +1,4 @@
-package org.example.roles;
+package com.example.roles;
 
 public class Role {
     private final String id;

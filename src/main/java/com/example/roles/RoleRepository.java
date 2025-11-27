@@ -1,4 +1,4 @@
-package org.example.roles;
+package com.example.roles;
 
 import java.util.List;
 

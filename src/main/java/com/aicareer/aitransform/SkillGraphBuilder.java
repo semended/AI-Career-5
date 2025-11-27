@@ -1,6 +1,4 @@
-package org.aicareer.aitransform;
-
-import org.aicareer.aitransform.VacancySkills;
+package com.aicareer.aitransform;
 
 import java.util.*;
 

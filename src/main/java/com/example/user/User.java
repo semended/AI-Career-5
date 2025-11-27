@@ -1,4 +1,4 @@
-package org.example.user;
+package com.example.user;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
