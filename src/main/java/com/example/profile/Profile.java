@@ -1,4 +1,4 @@
-package org.example.profile;
+package com.example.profile;
 
 import java.time.LocalDateTime;
 import java.util.Map;

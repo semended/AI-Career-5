@@ -1,4 +1,4 @@
-package org.example.user;
+package com.example.user;
 
 public class Session {
     private static User currentUser;

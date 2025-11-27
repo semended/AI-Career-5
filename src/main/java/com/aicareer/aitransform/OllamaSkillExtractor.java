@@ -1,4 +1,4 @@
-package org.aicareer.aitransform;
+package com.aicareer.aitransform;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;

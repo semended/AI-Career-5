@@ -1,4 +1,4 @@
-package org.aicareer.aitransform;
+package com.aicareer.aitransform;
 
 import java.util.Map;
 

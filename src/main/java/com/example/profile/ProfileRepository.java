@@ -1,9 +1,9 @@
 
-package org.example.profile;
+package com.example.profile;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.example.db.Database;
+import com.example.db.Database;
 
 import java.sql.*;
 import java.time.LocalDateTime;

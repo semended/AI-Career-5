@@ -1,4 +1,4 @@
-package org.example.user;
+package com.example.user;
 
 public class RegisterUser {
     private final UserRepository userRepo;
