@@ -1,0 +1,9 @@
+{
+  "id": "9b7d06c4-8e38-4fa2-9c4f-1a8ad3ef0f6b",
+  "email": "jane.doe@example.com",
+  "name": "Jane Doe",
+  "profile": {
+    "targetRole": "Full Stack Developer",
+    "skills": "java, python, javascript, sql, docker"
+  }
+}
