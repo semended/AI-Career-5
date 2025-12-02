@@ -1,22 +1,5 @@
 [ {
   "id" : null,
-  "title" : "Разработчик Python (Цент практического ИИ)",
-  "company" : "СБЕР",
-  "city" : "Москва",
-  "experience" : null,
-  "employment" : null,
-  "schedule" : null,
-  "salaryFrom" : null,
-  "salaryTo" : 250000,
-  "currency" : "RUR",
-  "skills" : null,
-  "description" : "Знакомство с Kubernetes/OpenShift. Понимание архитектуры LLM и принципов prompt <highlighttext>engineering</highlighttext>. Опыт оптимизации производительности высоконагруженных систем. Опыт работы в банковской... Работа с базами данных (PostgreSQL, MongoDB, Redis, Qdrant/Faiss/Chroma и тд). Взаимодействие с <highlighttext>Data</highlighttext> Scientists, ML-<highlighttext>инженерами</highlighttext> и аналитиками...",
-  "url" : "https://hh.ru/vacancy/128347120",
-  "source" : "hh",
-  "publishedAt" : null,
-  "score" : 1
-}, {
-  "id" : null,
   "title" : "Data Engineer/Python Developer (Middle)",
   "company" : "Антиплагиат",
   "city" : "Москва",
@@ -26,12 +9,11 @@
   "salaryFrom" : null,
   "salaryTo" : null,
   "currency" : null,
-  "skills" : null,
+  "skills" : [ ],
   "description" : "Уверенное знание Python. Умение обернуть написанный код в Docker-контейнер. Опыт работы с SQL/NoSQL БД. Опыт использования Linux.  Писать краулеры сайтов. Разрабатывать службы для получения данных из клиентских API.",
   "url" : "https://hh.ru/vacancy/128314804",
   "source" : "hh",
-  "publishedAt" : null,
-  "score" : 1
+  "publishedAt" : null
 }, {
   "id" : null,
   "title" : "Middle / Senior Python developer (Data Crawling Engineer)",
@@ -43,29 +25,11 @@
   "salaryFrom" : null,
   "salaryTo" : null,
   "currency" : null,
-  "skills" : null,
+  "skills" : [ ],
   "description" : "Опыт разработки AI/GPT решений. Знание основ AI/ML (использование LLM, ML API, prompt <highlighttext>engineering</highlighttext>, векторные базы данных). Проектировать и оптимизировать ETL-процессов для обработки больших объемов структурированных и неструктурированных данных. Участие в разработке архитектуры высоконагруженной и отказоустойчивой...",
   "url" : "https://hh.ru/vacancy/126310865",
   "source" : "hh",
-  "publishedAt" : null,
-  "score" : 1
-}, {
-  "id" : null,
-  "title" : "Data engineer (ETL)",
-  "company" : "Тера Интегро",
-  "city" : "Москва",
-  "experience" : null,
-  "employment" : null,
-  "schedule" : null,
-  "salaryFrom" : null,
-  "salaryTo" : null,
-  "currency" : null,
-  "skills" : null,
-  "description" : "Отличное знание SQL. Хорошее знание DBT, Python, Airflow (проектный опыт применение технологий). Понимание механизмов работы реляционных СУБД (на примере одной).  Разработка ETL-фрэймворка и оркестратора на DBT. Разработка механизмов репликации данных на DBT. Разработка и оптимизация механизмов внутрисистемных проверок: db...",
-  "url" : "https://hh.ru/vacancy/126262126",
-  "source" : "hh",
-  "publishedAt" : null,
-  "score" : 1
+  "publishedAt" : null
 }, {
   "id" : null,
   "title" : "Senior Python developer",
@@ -77,12 +41,11 @@
   "salaryFrom" : null,
   "salaryTo" : null,
   "currency" : null,
-  "skills" : null,
+  "skills" : [ ],
   "description" : "Deep understanding of REST API design, async I/O, and <highlighttext>data</highlighttext> serialization. Hands-on experience with PostgreSQL. Skills in building... Design and maintain Python microservices and REST APIs (FastAPI) powering internal AI and NLP workflows. Build MCP (Model Control & Processing...",
   "url" : "https://hh.ru/vacancy/128092346",
   "source" : "hh",
-  "publishedAt" : null,
-  "score" : 1
+  "publishedAt" : null
 }, {
   "id" : null,
   "title" : "Инженер данных / ML инженер / Разработчик Python",
@@ -94,12 +57,11 @@
   "salaryFrom" : null,
   "salaryTo" : null,
   "currency" : null,
-  "skills" : null,
+  "skills" : [ ],
   "description" : "Навыки работы с NoSQL базами данных. Знания в области <highlighttext>Data</highlighttext> <highlighttext>Engineering</highlighttext>. Опыт работы с gRPC/protobuf. Опыт работы с Docker. Проектирование, оптимизация и расширение моделей данных и витрин для отчетности. Создание дашбордов, отчетов и визуализаций в Superset. Написание и оптимизация...",
   "url" : "https://hh.ru/vacancy/128064117",
   "source" : "hh",
-  "publishedAt" : null,
-  "score" : 1
+  "publishedAt" : null
 }, {
   "id" : null,
   "title" : "Lead Backend Engineer / Ведущий инженер (Python / Node.js)",
@@ -111,12 +73,11 @@
   "salaryFrom" : null,
   "salaryTo" : null,
   "currency" : null,
-  "skills" : null,
+  "skills" : [ ],
   "description" : "Мы рассматриваем специалиста уровня hands-on CTO или сильного ведущего <highlighttext>инженера</highlighttext> (Python / Node.js) c опытом построения масштабируемых систем.  Мы ожидаем, что специалист будет лично создавать технологическую основу продукта: от проектирования архитектуры до написания ключевых компонентов. Необходимо самостоятельно управлять...",
   "url" : "https://hh.ru/vacancy/128058262",
   "source" : "hh",
-  "publishedAt" : null,
-  "score" : 1
+  "publishedAt" : null
 }, {
   "id" : null,
   "title" : "Senior Python/ML Engineer",
@@ -128,12 +89,11 @@
   "salaryFrom" : null,
   "salaryTo" : null,
   "currency" : null,
-  "skills" : null,
+  "skills" : [ ],
   "description" : "Experience in preparing <highlighttext>data</highlighttext> and training models for various tasks (detection, segmentation, generation). — Skills in testing and debugging algorithms and... 2D, 3D generation using open-source and proprietary solutions. — Combine several ML/CV/LLM tools into a single...",
   "url" : "https://hh.ru/vacancy/128053920",
   "source" : "hh",
-  "publishedAt" : null,
-  "score" : 1
+  "publishedAt" : null
 }, {
   "id" : null,
   "title" : "Junior Python Developer (Web3)",
@@ -145,12 +105,11 @@
   "salaryFrom" : null,
   "salaryTo" : 1300,
   "currency" : "USD",
-  "skills" : null,
+  "skills" : [ ],
   "description" : "Опыт автоматизации контента, оптимизации изображений, работы с WebP. Опыт работы с Generative <highlighttext>Engine</highlighttext> Optimization. Плюсом — знание специфики криптоконтента, Web3... Без автообрезки, сохранение пропорций. Открытие по клику без боковых полей. Настройка WebP-сжатия без потери качества. Автозагрузка и конвертация (JPEG...",
   "url" : "https://hh.ru/vacancy/127991201",
   "source" : "hh",
-  "publishedAt" : null,
-  "score" : 1
+  "publishedAt" : null
 }, {
   "id" : null,
   "title" : "Старший аналитик-программист SQL",
@@ -162,12 +121,11 @@
   "salaryFrom" : 200000,
   "salaryTo" : 200000,
   "currency" : "RUR",
-  "skills" : null,
+  "skills" : [ ],
   "description" : "Высшее профильное образование. Глубокое знание SQL (оптимизация запросов, анализ планов выполнения). Опыт администрирования MSSQL (репликация, резервное копирование, мониторинг.  Проектирование и создание баз данных (таблицы, связи, индексы) на MSSQL. Написание SQL-запросов (в том числе сложных), хранимых процедур, функций...",
   "url" : "https://hh.ru/vacancy/127943670",
   "source" : "hh",
-  "publishedAt" : null,
-  "score" : 1
+  "publishedAt" : null
 }, {
   "id" : null,
   "title" : "Старший аналитик-программист SQL",
@@ -179,12 +137,11 @@
   "salaryFrom" : 200000,
   "salaryTo" : 200000,
   "currency" : "RUR",
-  "skills" : null,
+  "skills" : [ ],
   "description" : "Высшее профильное образование. Глубокое знание SQL (оптимизация запросов, анализ планов выполнения). Опыт администрирования MSSQL (репликация, резервное копирование, мониторинг.  Проектирование и создание баз данных (таблицы, связи, индексы) на MSSQL. Написание SQL-запросов (в том числе сложных), хранимых процедур, функций...",
   "url" : "https://hh.ru/vacancy/127943671",
   "source" : "hh",
-  "publishedAt" : null,
-  "score" : 1
+  "publishedAt" : null
 }, {
   "id" : null,
   "title" : "Старший аналитик-программист SQL",
@@ -196,12 +153,11 @@
   "salaryFrom" : 200000,
   "salaryTo" : 200000,
   "currency" : "RUR",
-  "skills" : null,
+  "skills" : [ ],
   "description" : "Высшее профильное образование. Глубокое знание SQL (оптимизация запросов, анализ планов выполнения). Опыт администрирования MSSQL (репликация, резервное копирование, мониторинг.  Проектирование и создание баз данных (таблицы, связи, индексы) на MSSQL. Написание SQL-запросов (в том числе сложных), хранимых процедур, функций...",
   "url" : "https://hh.ru/vacancy/127943672",
   "source" : "hh",
-  "publishedAt" : null,
-  "score" : 1
+  "publishedAt" : null
 }, {
   "id" : null,
   "title" : "Старший аналитик-программист SQL",
@@ -213,29 +169,11 @@
   "salaryFrom" : 200000,
   "salaryTo" : 200000,
   "currency" : "RUR",
-  "skills" : null,
+  "skills" : [ ],
   "description" : "Высшее профильное образование. Глубокое знание SQL (оптимизация запросов, анализ планов выполнения). Опыт администрирования MSSQL (репликация, резервное копирование, мониторинг.  Проектирование и создание баз данных (таблицы, связи, индексы) на MSSQL. Написание SQL-запросов (в том числе сложных), хранимых процедур, функций...",
   "url" : "https://hh.ru/vacancy/127943673",
   "source" : "hh",
-  "publishedAt" : null,
-  "score" : 1
-}, {
-  "id" : null,
-  "title" : "Data Engineer (StarRocks, DBT, Spark)",
-  "company" : "Neoflex",
-  "city" : "Санкт-Петербург",
-  "experience" : null,
-  "employment" : null,
-  "schedule" : null,
-  "salaryFrom" : null,
-  "salaryTo" : null,
-  "currency" : null,
-  "skills" : null,
-  "description" : "Глубокие знания SQL. Знание архитектуры Lake House, Iceberg, StarRocks, вопросов производительности. Опыт работы со Spark (от 2х лет), знание... Построением платформы для отчетности на технологическом стеке Lakehouse (S3, Iceberg, StarRocks, Spark). Оптимизацией своего и чужого кода на SQL...",
-  "url" : "https://hh.ru/vacancy/124589519",
-  "source" : "hh",
-  "publishedAt" : null,
-  "score" : 1
+  "publishedAt" : null
 }, {
   "id" : null,
   "title" : "ML Engineer / Data Science Developer (Python) / Дата-сайентист",
@@ -247,12 +185,11 @@
   "salaryFrom" : 230000,
   "salaryTo" : 310000,
   "currency" : "RUR",
-  "skills" : null,
+  "skills" : [ ],
   "description" : "Опыт работы в командной разработке и понимание принципов построения систем «среднего размера». Владение Python и уверенная работа с ML-стеком... Работать над системой в продакшн — улучшать ее стабильность, производительность и качество моделей. Разрабатывать и поддерживать ML-пайплайны. Участвовать в полном...",
   "url" : "https://hh.ru/vacancy/127869537",
   "source" : "hh",
-  "publishedAt" : null,
-  "score" : 1
+  "publishedAt" : null
 }, {
   "id" : null,
   "title" : "QA Automation Engineer (Python)",
@@ -264,29 +201,11 @@
   "salaryFrom" : null,
   "salaryTo" : null,
   "currency" : null,
-  "skills" : null,
+  "skills" : [ ],
   "description" : "Опыт работы в роли QA Automation <highlighttext>Engineer</highlighttext> (Python) от 2,9 лет. Опыт написания автоматических тестов на Python (Pytest/Selenium).  Возможность работать с современным стеком технологий над интересным проектом. Возможность быть частью изменений, улучшений, запусков новых направлений.",
   "url" : "https://hh.ru/vacancy/127820545",
   "source" : "hh",
-  "publishedAt" : null,
-  "score" : 1
-}, {
-  "id" : null,
-  "title" : "Data Analyst / Аналитик данных (ETL & Data Collection)",
-  "company" : "Уфимцева Ольга Сергеевна",
-  "city" : "Москва",
-  "experience" : null,
-  "employment" : null,
-  "schedule" : null,
-  "salaryFrom" : 150000,
-  "salaryTo" : 250000,
-  "currency" : "RUR",
-  "skills" : null,
-  "description" : "Python (Pandas, Requests) и web-scraping (Playwright). ClickHouse и PostgreSQL, сложные SQL-запросы и оптимизация. Опыт работы с REST API.  Поддержка, мониторинг и оптимизация существующих ETL-процессов и парсеров. Разработка новых источников данных и интеграция с внешними API. ",
-  "url" : "https://hh.ru/vacancy/127804244",
-  "source" : "hh",
-  "publishedAt" : null,
-  "score" : 1
+  "publishedAt" : null
 }, {
   "id" : null,
   "title" : "LLM/AI QA testing engineer (Python)",
@@ -298,63 +217,11 @@
   "salaryFrom" : null,
   "salaryTo" : null,
   "currency" : null,
-  "skills" : null,
+  "skills" : [ ],
   "description" : "Высшее техническое образование. Опыт работы на LLM-проектах (от 1–2х лет). Уверенное знание SQL и понимание принципов работы... Разработка и поддержка стратегий тестирования для <highlighttext>data</highlighttext>-пайплайнов и ML-моделей. Проведение ручного и автоматизированного тестирования ETL/ELT процессов. ",
   "url" : "https://hh.ru/vacancy/125868550",
   "source" : "hh",
-  "publishedAt" : null,
-  "score" : 1
-}, {
-  "id" : null,
-  "title" : "Middle+ Data Scientist/Data Engineer (AI)",
-  "company" : "Современные Фонды Недвижимости",
-  "city" : "Москва",
-  "experience" : null,
-  "employment" : null,
-  "schedule" : null,
-  "salaryFrom" : null,
-  "salaryTo" : null,
-  "currency" : null,
-  "skills" : null,
-  "description" : "Общий стаж: минимум 4-5 лет в <highlighttext>data</highlighttext> science / <highlighttext>data</highlighttext> <highlighttext>engineering</highlighttext>, из них минимум 1,5 года в гибридных проектах... Интеграция разработанных решений в существующие корпоративные системы. Тесное сотрудничество с AI-разработчиками, MLOps <highlighttext>инженерами</highlighttext>, системными аналитиками и специалистами предметных областей.",
-  "url" : "https://hh.ru/vacancy/128339425",
-  "source" : "hh",
-  "publishedAt" : null,
-  "score" : 0
-}, {
-  "id" : null,
-  "title" : "Senior ML Engineer / Data Scientist",
-  "company" : "Про.Потолок",
-  "city" : "Москва",
-  "experience" : null,
-  "employment" : null,
-  "schedule" : null,
-  "salaryFrom" : 250000,
-  "salaryTo" : 350000,
-  "currency" : "RUR",
-  "skills" : null,
-  "description" : "Высшее профильное образование. Опыт разработки нейросетей от 4 лет. Уверенное владение Python и основными ML/DL/CV библиотеками.  Разработка и внедрение моделей компьютерного зрения (CV) для анализа изображений и видео с объектов. Разработка и оптимизация NLP-решений, включая...",
-  "url" : "https://hh.ru/vacancy/127732252",
-  "source" : "hh",
-  "publishedAt" : null,
-  "score" : 0
-}, {
-  "id" : null,
-  "title" : "Data Engineer / Data Architect",
-  "company" : "ARK",
-  "city" : "Москва",
-  "experience" : null,
-  "employment" : null,
-  "schedule" : null,
-  "salaryFrom" : null,
-  "salaryTo" : null,
-  "currency" : null,
-  "skills" : null,
-  "description" : "Имеет опыт работы с большими объемами данных. Уверенно владеет Spark / PySpark. Глубоко понимает архитектуру данных и принципы построения дата-платформ.  Автоматизация и стандартизация ETL/ELT процессов. Взаимодействие с командами аналитики, <highlighttext>Data</highlighttext> Science и глобальными дата-командами. Участие в управлении задачами...",
-  "url" : "https://hh.ru/vacancy/127801968",
-  "source" : "hh",
-  "publishedAt" : null,
-  "score" : 0
+  "publishedAt" : null
 }, {
   "id" : null,
   "title" : "Data Quality Engineer Middle\\Middle+",
@@ -366,12 +233,11 @@
   "salaryFrom" : null,
   "salaryTo" : 400000,
   "currency" : "RUR",
-  "skills" : null,
+  "skills" : [ ],
   "description" : "Опыт работы с базами данных: PostgreSQL, Oracle, MSSQL, Cassandra, Redis, Greenplum. Понимание принципов <highlighttext>data</highlighttext> quality (контроль, мониторинг, валидации).  Контроль качества данных, внедрение проверок и мониторинг корректности витрин. Разработка и поддержка витрин данных. Проектирование и оптимизация SQL-запросов для...",
   "url" : "https://hh.ru/vacancy/128329548",
   "source" : "hh",
-  "publishedAt" : null,
-  "score" : 0
+  "publishedAt" : null
 }, {
   "id" : null,
   "title" : "Data Engineer",
@@ -383,12 +249,27 @@
   "salaryFrom" : null,
   "salaryTo" : null,
   "currency" : null,
-  "skills" : null,
+  "skills" : [ ],
   "description" : "Опыт работы в роли <highlighttext>Data</highlighttext> <highlighttext>Engineer</highlighttext> от 2 лет. Понимание особенностей работы MPP систем. Опыт работы с Greenplum, Teradata или... Проектировать, разрабатывать, тестировать и внедрять ETL процессы. Создавать объекты хранилища и витрины данных на платформе ArenaData и PostgreSQL. ",
   "url" : "https://hh.ru/vacancy/127332580",
   "source" : "hh",
-  "publishedAt" : null,
-  "score" : 0
+  "publishedAt" : null
+}, {
+  "id" : null,
+  "title" : "Старший рекрутер",
+  "company" : "Ekleft",
+  "city" : "Москва",
+  "experience" : null,
+  "employment" : null,
+  "schedule" : null,
+  "salaryFrom" : null,
+  "salaryTo" : null,
+  "currency" : null,
+  "skills" : [ ],
+  "description" : "Высшее образование. Обязателен опыт работы в кадровом агентстве или аутстафф-компании. Отличное понимание специфики IT-рынка и современных технологий.  Подбор IT-специалистов уровня Middle / Senior (Backend, Frontend, Mobile Developers, DevOps, QA — manual/mobile, <highlighttext>Data</highlighttext> <highlighttext>Engineer</highlighttext>, аналитики и др.). ​​​​​​​",
+  "url" : "https://hh.ru/vacancy/127329123",
+  "source" : "hh",
+  "publishedAt" : null
 }, {
   "id" : null,
   "title" : "Data Scientist / ML Engineer",
@@ -400,12 +281,11 @@
   "salaryFrom" : null,
   "salaryTo" : null,
   "currency" : null,
-  "skills" : null,
+  "skills" : [ ],
   "description" : "Опыт работы ML-<highlighttext>инженером</highlighttext> / DS или аналогичной роли от 3 лет. Уверенное владение Python и основными ML-библиотеками (pandas, scikit... Ищем <highlighttext>Data</highlighttext> Scientist / ML <highlighttext>Engineer</highlighttext> в Столото — крупнейшего распространителя государственных лотерей. Для развития и поддержания инфраструктуры сайта с различными сервисами...",
   "url" : "https://hh.ru/vacancy/127794006",
   "source" : "hh",
-  "publishedAt" : null,
-  "score" : 0
+  "publishedAt" : null
 }, {
   "id" : null,
   "title" : "Senior Data Scientist (NLP, AI-агент)",
@@ -417,10 +297,105 @@
   "salaryFrom" : null,
   "salaryTo" : null,
   "currency" : null,
-  "skills" : null,
+  "skills" : [ ],
   "description" : "Высшее образование в области компьютерных наук, математики или сопутствующих областях. Практический опыт работы с NLP-моделями на базе глубоких нейросетей... Создание и оптимизация AI-агентов и интеллектуальных чат-ботов с использованием фреймворка LangChain и методов Context <highlighttext>Engineering</highlighttext>. Проектирование систем диалогового...",
   "url" : "https://hh.ru/vacancy/128328717",
   "source" : "hh",
-  "publishedAt" : null,
-  "score" : 0
+  "publishedAt" : null
+}, {
+  "id" : null,
+  "title" : "Middle/Senior Data Scientist (Классический ML)",
+  "company" : "СБЕР",
+  "city" : "Москва",
+  "experience" : null,
+  "employment" : null,
+  "schedule" : null,
+  "salaryFrom" : null,
+  "salaryTo" : null,
+  "currency" : null,
+  "skills" : [ ],
+  "description" : "Опыт работы с Feature <highlighttext>Engineering</highlighttext>: кодирование категориальных признаков, масштабирование, создание и отбор признаков, работа с несбалансированными данными (SMOTE, ADASYN).  ...данных (<highlighttext>Data</highlighttext> Drift, Concept Drift). Внедрение автоматизированных пайплайнов обучения и оценки, интеграция моделей с продакшеном совместно с DevOps-<highlighttext>инженерами</highlighttext>. ",
+  "url" : "https://hh.ru/vacancy/128328466",
+  "source" : "hh",
+  "publishedAt" : null
+}, {
+  "id" : null,
+  "title" : "Data Engineer/разработчик oracle DWH",
+  "company" : "Технохранилище",
+  "city" : "Москва",
+  "experience" : null,
+  "employment" : null,
+  "schedule" : null,
+  "salaryFrom" : 200000,
+  "salaryTo" : 350000,
+  "currency" : "RUR",
+  "skills" : [ ],
+  "description" : "Высшее образование в IT/математике или смежной области. Опыт работы с Oracle (версия 19c или аналогичная) не менее 3... Разработка и оптимизация ETL-процессов для загрузки данных в КХД (Oracle) из различных источников (включая системы ЦФТ, МСБ-резерв). ",
+  "url" : "https://hh.ru/vacancy/127722544",
+  "source" : "hh",
+  "publishedAt" : null
+}, {
+  "id" : null,
+  "title" : "Head of Data Science",
+  "company" : "Ок Софт",
+  "city" : "Москва",
+  "experience" : null,
+  "employment" : null,
+  "schedule" : null,
+  "salaryFrom" : null,
+  "salaryTo" : null,
+  "currency" : null,
+  "skills" : [ ],
+  "description" : "Familiarity with distributed computing frameworks (py-spark). Understanding of <highlighttext>data</highlighttext> <highlighttext>engineering</highlighttext> fundamentals and ETL/ELT pipelines. Prior involvement in building... Work with <highlighttext>data</highlighttext> <highlighttext>engineering</highlighttext> to ensure high-quality, reliable <highlighttext>data</highlighttext> pipelines. Align <highlighttext>data</highlighttext> science initiatives with product roadmaps and business...",
+  "url" : "https://hh.ru/vacancy/128095146",
+  "source" : "hh",
+  "publishedAt" : null
+}, {
+  "id" : null,
+  "title" : "Product Analyst / Продуктовый аналитик",
+  "company" : "Ок Софт",
+  "city" : "Москва",
+  "experience" : null,
+  "employment" : null,
+  "schedule" : null,
+  "salaryFrom" : null,
+  "salaryTo" : null,
+  "currency" : null,
+  "skills" : [ ],
+  "description" : "Ability to work closely with <highlighttext>data</highlighttext> analysts, risk management teams. Communication with <highlighttext>data</highlighttext> <highlighttext>engineering</highlighttext> team on technical requirements.  User behaviour analysis and cohort studies. Customer lifetime value (LTV) and churn modelling. Conversion funnel optimization. Product performance metrics control...",
+  "url" : "https://hh.ru/vacancy/127321976",
+  "source" : "hh",
+  "publishedAt" : null
+}, {
+  "id" : null,
+  "title" : "Data Engineer (Kandinsky)",
+  "company" : "СБЕР",
+  "city" : "Москва",
+  "experience" : null,
+  "employment" : null,
+  "schedule" : null,
+  "salaryFrom" : null,
+  "salaryTo" : null,
+  "currency" : null,
+  "skills" : [ ],
+  "description" : "Опыт работы с S3 или совместимыми объектными хранилищами, понимание структуры и принципов организации <highlighttext>data</highlighttext>-lake. Понимание принципов распределённой обработки... Проектирование и разработка ETL/ELT-пайплайнов для обработки изображений и видеоданных, как в экосистеме Apache Airflow, так и в формате...",
+  "url" : "https://hh.ru/vacancy/128325873",
+  "source" : "hh",
+  "publishedAt" : null
+}, {
+  "id" : null,
+  "title" : "Data Engineer / Data Analyst / аналитик данных (middle)",
+  "company" : "Бризекс",
+  "city" : "Москва",
+  "experience" : null,
+  "employment" : null,
+  "schedule" : null,
+  "salaryFrom" : 100000,
+  "salaryTo" : 200000,
+  "currency" : "RUR",
+  "skills" : [ ],
+  "description" : "...бизнес-аналитик, аналитик процессов, <highlighttext>Data</highlighttext> <highlighttext>Engineer</highlighttext>, <highlighttext>Data</highlighttext> Analyst, разработчик данных, <highlighttext>инженер</highlighttext> по обработке данных, BI-<highlighttext>инженер</highlighttext>, BI-аналитик, специалист по... Ваша задача — документировать источники, строить <highlighttext>Data</highlighttext> Lineage и управлять метаданными, чтобы любой сотрудник мог легко найти и понять нужную ему...",
+  "url" : "https://hh.ru/vacancy/128325537",
+  "source" : "hh",
+  "publishedAt" : null
 } ]
