@@ -160,6 +160,22 @@
   "publishedAt" : null
 }, {
   "id" : null,
+  "title" : "DevOps (Middle / Middle+)",
+  "company" : "ОНИН",
+  "city" : "Москва",
+  "experience" : null,
+  "employment" : null,
+  "schedule" : null,
+  "salaryFrom" : null,
+  "salaryTo" : null,
+  "currency" : null,
+  "skills" : [ ],
+  "description" : "Повышать уровень автоматизации админских задачах и/или процессов. Основной упор на Ansible и Bash. - условия для выстраивания приятных рабочих и... Поддерживать и развивать систему мониторинга/аллертинга. По большей части Zabbix с Grafana + немного Prometeus. *Вся обслуживаемая инфраструктура наша, никаких...",
+  "url" : "https://hh.ru/vacancy/127550734",
+  "source" : "hh",
+  "publishedAt" : null
+}, {
+  "id" : null,
   "title" : "DevOps-инженер",
   "company" : "PravoTech",
   "city" : "Москва",
@@ -176,7 +192,7 @@
   "publishedAt" : null
 }, {
   "id" : null,
-  "title" : "QA Engineer (Full-stack)",
+  "title" : "Full-stack QA Engineer / Тестировщик",
   "company" : "Финтех",
   "city" : "Москва",
   "experience" : null,
@@ -236,22 +252,6 @@
   "skills" : [ ],
   "description" : "Экспертное владение Docker, Docker Compose, контейнеризацией. Глубокое понимание GitLab CI/CD, написание pipeline. Опыт развертывания LLM моделей. Экспертный уровень PostgreSQL... Проектирование и поддержка инфраструктуры на базе Docker и Docker Compose. Настройка и управление CI/CD процессами в GitLab. ",
   "url" : "https://hh.ru/vacancy/128331667",
-  "source" : "hh",
-  "publishedAt" : null
-}, {
-  "id" : null,
-  "title" : "Старший рекрутер",
-  "company" : "Ekleft",
-  "city" : "Москва",
-  "experience" : null,
-  "employment" : null,
-  "schedule" : null,
-  "salaryFrom" : null,
-  "salaryTo" : null,
-  "currency" : null,
-  "skills" : [ ],
-  "description" : "Высшее образование. Обязателен опыт работы в кадровом агентстве или аутстафф-компании. Отличное понимание специфики IT-рынка и современных технологий.  Подбор IT-специалистов уровня Middle / Senior (Backend, Frontend, Mobile Developers, <highlighttext>DevOps</highlighttext>, QA — manual/mobile, Data <highlighttext>Engineer</highlighttext>, аналитики и др.). ​​​​​​​",
-  "url" : "https://hh.ru/vacancy/127329123",
   "source" : "hh",
   "publishedAt" : null
 }, {
@@ -330,7 +330,7 @@
   "salaryTo" : null,
   "currency" : null,
   "skills" : [ ],
-  "description" : "Опыт работы с Git. Опыт работы с Ansible. Опыт работы с Kustomize, Helm. Опыт работы с Kubernetes/Openshift.  Создание и управление инструментами развертывания <highlighttext>DevOps</highlighttext> (Jenkins, Ansible, BitBucket). Управление конфигурациям сервисов: Syngx (Nginx), Kubernetes, Openshift, Kustomize. Проведение технологических и...",
+  "description" : "Опыт работы с Git. Опыт работы с Ansible. Опыт работы с Kustomize, Helm. Опыт работы с Kubernetes/Openshift (yaml).  Создание и управление инструментами развертывания <highlighttext>DevOps</highlighttext> (Jenkins, Ansible, BitBucket). Управление конфигурациям сервисов: Syngx (Nginx), Kubernetes, Openshift, Kustomize. Проведение технологических и...",
   "url" : "https://hh.ru/vacancy/128326900",
   "source" : "hh",
   "publishedAt" : null

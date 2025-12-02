@@ -1,5 +1,37 @@
 [ {
   "id" : null,
+  "title" : "Специалист по автоматизированному тестированию\\Automation QA Engineer (Python)",
+  "company" : "Открытая мобильная платформа",
+  "city" : "Москва",
+  "experience" : null,
+  "employment" : null,
+  "schedule" : null,
+  "salaryFrom" : null,
+  "salaryTo" : null,
+  "currency" : null,
+  "skills" : [ ],
+  "description" : "Опыт работы в командах <highlighttext>разработки</highlighttext>. Понимать как устроена работа в кроссфункциональных командах <highlighttext>разработки</highlighttext>. Опыт работы с мобильными устройствами и автоматизация... Разрабатывать функциональные автоматические тесты (ui web, api, <highlighttext>mobile</highlighttext>). Работать в кроссфункциональной команде с <highlighttext>разработчиками</highlighttext>, аналитиками и дизайнерами. Участвовать в развитии...",
+  "url" : "https://hh.ru/vacancy/124270690",
+  "source" : "hh",
+  "publishedAt" : null
+}, {
+  "id" : null,
+  "title" : "СТО/Технический директор (Go/React.js)",
+  "company" : "A3F Group",
+  "city" : "Москва",
+  "experience" : null,
+  "employment" : null,
+  "schedule" : null,
+  "salaryFrom" : null,
+  "salaryTo" : null,
+  "currency" : null,
+  "skills" : [ ],
+  "description" : "Имеешь аналогичный опыт работы от 5 лет. Имеешь опыт работы с Go, React.js, Kotlin, Swift. Понимание CI/CD, Docker, GitHub... <highlighttext>Mobile</highlighttext>: <highlighttext>Android</highlighttext>(Kotlin,ArCore) и iOS(swift,realityKit). CI/CD: Docker, GitHub Actions. Системы: Linux. Руководить удалённой командой <highlighttext>разработки</highlighttext> (в...",
+  "url" : "https://hh.ru/vacancy/128338100",
+  "source" : "hh",
+  "publishedAt" : null
+}, {
+  "id" : null,
   "title" : "Стажер - инженер по мобильному тестированию, Приложение покупателя",
   "company" : "Ozon",
   "city" : "Москва",
@@ -272,22 +304,6 @@
   "publishedAt" : null
 }, {
   "id" : null,
-  "title" : "Специалист по автоматизированному тестированию\\Automation QA Engineer (Python)",
-  "company" : "Открытая мобильная платформа",
-  "city" : "Москва",
-  "experience" : null,
-  "employment" : null,
-  "schedule" : null,
-  "salaryFrom" : null,
-  "salaryTo" : null,
-  "currency" : null,
-  "skills" : [ ],
-  "description" : "Опыт работы в командах <highlighttext>разработки</highlighttext>. Понимать как устроена работа в кроссфункциональных командах <highlighttext>разработки</highlighttext>. Опыт работы с мобильными устройствами и автоматизация... Разрабатывать функциональные автоматические тесты (ui web, api, <highlighttext>mobile</highlighttext>). Работать в кроссфункциональной команде с <highlighttext>разработчиками</highlighttext>, аналитиками и дизайнерами. Участвовать в развитии...",
-  "url" : "https://hh.ru/vacancy/124270690",
-  "source" : "hh",
-  "publishedAt" : null
-}, {
-  "id" : null,
   "title" : "Middle QA Automation Engineer (Mobile)",
   "company" : "АстраЗенека",
   "city" : "Москва",
@@ -380,22 +396,6 @@
   "skills" : [ ],
   "description" : "...Analyzer (inseyets), Мобильный криминалист Эксперт, РС-3000 <highlighttext>Mobile</highlighttext>, Elcomsoft iOS Forensic Toolkit, <highlighttext>Mobile</highlighttext> Verification Toolkit, Wireshark и др..  <highlighttext>Разработка</highlighttext> рекомендаций по улучшению безопасности мобильных устройств, включая внедрение дополнительных мер защиты и профилактики атак. <highlighttext>Разработка</highlighttext> собственных инструментов для проведения...",
   "url" : "https://hh.ru/vacancy/127020328",
-  "source" : "hh",
-  "publishedAt" : null
-}, {
-  "id" : null,
-  "title" : "UX/UI-дизайнер/Дизайнер мобильных приложений/designer/digital/graphic/mobile, интерфейсов",
-  "company" : "Никифорова Ирина Николаевна",
-  "city" : "Москва",
-  "experience" : null,
-  "employment" : null,
-  "schedule" : null,
-  "salaryFrom" : null,
-  "salaryTo" : 2000,
-  "currency" : "USD",
-  "skills" : [ ],
-  "description" : "Умение аргументировать свои дизайн-решения и готовность к конструктивной критике. Понимание технических ограничений и возможностей мобильных платформ (iOS, <highlighttext>Android</highlighttext>). Проектирование пользовательских интерфейсов для нашего мобильного приложения на платформах iOS и <highlighttext>Android</highlighttext> с нуля и доработка существующих. <highlighttext>Разработка</highlighttext> и поддержка...",
-  "url" : "https://hh.ru/vacancy/127969268",
   "source" : "hh",
   "publishedAt" : null
 } ]

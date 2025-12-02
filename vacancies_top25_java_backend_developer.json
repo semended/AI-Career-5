@@ -352,6 +352,22 @@
   "publishedAt" : null
 }, {
   "id" : null,
+  "title" : "Senior PixiJS Developer",
+  "company" : "Art Alef Recrutement FZE",
+  "city" : "Москва",
+  "experience" : null,
+  "employment" : null,
+  "schedule" : null,
+  "salaryFrom" : 2000,
+  "salaryTo" : 3000,
+  "currency" : "USD",
+  "skills" : [ ],
+  "description" : "3+ лет опыта в HTML5 или GameDev-проектах. Коммерческий опыт работы с PixiJS или Phaser. Глубокие знания TypeScript... Интеграция анимаций и игровых сцен с <highlighttext>backend</highlighttext>/API. Работа с WebAudio API для создания звуковых эффектов. Настройка и сборка проектов...",
+  "url" : "https://hh.ru/vacancy/128102477",
+  "source" : "hh",
+  "publishedAt" : null
+}, {
+  "id" : null,
   "title" : "Технический руководитель продукта (Stream CTO)",
   "company" : "edna",
   "city" : "Москва",
@@ -380,22 +396,6 @@
   "skills" : [ ],
   "description" : "Чем ты будешь рулить: Экспертные знания: Умение работать в команде, давать и принимать конструктивную обратную связь. Желание постоянно совершенствоваться в... <highlighttext>Разработка</highlighttext> <highlighttext>backend</highlighttext> части платформы. Участие в доработке и оптимизации платформы. Общение с архитекторами, аналитиками, frontend <highlighttext>разработчиками</highlighttext>, devops инженерами для уточнения...",
   "url" : "https://hh.ru/vacancy/128281712",
-  "source" : "hh",
-  "publishedAt" : null
-}, {
-  "id" : null,
-  "title" : "Ruby on Rails developer (middle/middle+)",
-  "company" : "«Баланс-Платформа»",
-  "city" : "Москва",
-  "experience" : null,
-  "employment" : null,
-  "schedule" : null,
-  "salaryFrom" : null,
-  "salaryTo" : null,
-  "currency" : null,
-  "skills" : [ ],
-  "description" : "Имеете опыт работы с Ruby on Rails/PostgreSQL от 3-х лет. Имеете опыт реализации web-проектов со множеством интеграций.  Ruby, Python, <highlighttext>Java</highlighttext>). Front-часть на React, которой занимается команда фронт-<highlighttext>разработки</highlighttext>, рубисты сосредотачиваются на API и <highlighttext>backend</highlighttext>-части. ",
-  "url" : "https://hh.ru/vacancy/128275783",
   "source" : "hh",
   "publishedAt" : null
 } ]

@@ -64,6 +64,22 @@
   "publishedAt" : null
 }, {
   "id" : null,
+  "title" : "Fullstack-разработчик (Python + ETL + Frontend)",
+  "company" : "Камешкова Екатерина Александровна",
+  "city" : "Москва",
+  "experience" : null,
+  "employment" : null,
+  "schedule" : null,
+  "salaryFrom" : null,
+  "salaryTo" : null,
+  "currency" : null,
+  "skills" : [ ],
+  "description" : "Ключевой стек технологий: Будет большим плюсом опыт с: Уровень дохода готовы рассмотреть от опыта. Инфраструктура и DevOps: настройка и поддержка CI/CD, внедрение практик наблюдаемости (мониторинг, логирование). Инструментами мониторинга: Prometheus, Grafana, ELK <highlighttext>Stack</highlighttext>. ",
+  "url" : "https://hh.ru/vacancy/127335870",
+  "source" : "hh",
+  "publishedAt" : null
+}, {
+  "id" : null,
   "title" : "Full-Stack Developer (PHP/Laravel & JS/Vue/Nuxt.js)",
   "company" : "TOP15MOSCOW",
   "city" : "Москва",
@@ -284,22 +300,6 @@
   "skills" : [ ],
   "description" : "Уверенные знания Python/Go. Опыт <highlighttext>разработки</highlighttext> приложений с помощью React. Разрабатывать клиентскую и серверную части web-приложения. Контролировать качества кода. Оценивать задачи и участвовать в планировании работ. Участвовать в <highlighttext>разработке</highlighttext>...",
   "url" : "https://hh.ru/vacancy/128119291",
-  "source" : "hh",
-  "publishedAt" : null
-}, {
-  "id" : null,
-  "title" : "Fullstack-разработчик (Python + ETL + Frontend)",
-  "company" : "Камешкова Екатерина Александровна",
-  "city" : "Москва",
-  "experience" : null,
-  "employment" : null,
-  "schedule" : null,
-  "salaryFrom" : null,
-  "salaryTo" : null,
-  "currency" : null,
-  "skills" : [ ],
-  "description" : "Ключевой стек технологий: Будет большим плюсом опыт с: Уровень дохода готовы рассмотреть от опыта. Инфраструктура и DevOps: настройка и поддержка CI/CD, внедрение практик наблюдаемости (мониторинг, логирование). Инструментами мониторинга: Prometheus, Grafana, ELK <highlighttext>Stack</highlighttext>. ",
-  "url" : "https://hh.ru/vacancy/127335870",
   "source" : "hh",
   "publishedAt" : null
 }, {

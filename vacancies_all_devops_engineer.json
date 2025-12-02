@@ -1,5 +1,21 @@
 [ {
   "id" : null,
+  "title" : "DevOps (Middle / Middle+)",
+  "company" : "ОНИН",
+  "city" : "Москва",
+  "experience" : null,
+  "employment" : null,
+  "schedule" : null,
+  "salaryFrom" : null,
+  "salaryTo" : null,
+  "currency" : null,
+  "skills" : [ ],
+  "description" : "Повышать уровень автоматизации админских задачах и/или процессов. Основной упор на Ansible и Bash. - условия для выстраивания приятных рабочих и... Поддерживать и развивать систему мониторинга/аллертинга. По большей части Zabbix с Grafana + немного Prometeus. *Вся обслуживаемая инфраструктура наша, никаких...",
+  "url" : "https://hh.ru/vacancy/127550734",
+  "source" : "hh",
+  "publishedAt" : null
+}, {
+  "id" : null,
   "title" : "DevOps-инженер",
   "company" : "PravoTech",
   "city" : "Москва",
@@ -16,7 +32,7 @@
   "publishedAt" : null
 }, {
   "id" : null,
-  "title" : "QA Engineer (Full-stack)",
+  "title" : "Full-stack QA Engineer / Тестировщик",
   "company" : "Финтех",
   "city" : "Москва",
   "experience" : null,
@@ -76,22 +92,6 @@
   "skills" : [ ],
   "description" : "Экспертное владение Docker, Docker Compose, контейнеризацией. Глубокое понимание GitLab CI/CD, написание pipeline. Опыт развертывания LLM моделей. Экспертный уровень PostgreSQL... Проектирование и поддержка инфраструктуры на базе Docker и Docker Compose. Настройка и управление CI/CD процессами в GitLab. ",
   "url" : "https://hh.ru/vacancy/128331667",
-  "source" : "hh",
-  "publishedAt" : null
-}, {
-  "id" : null,
-  "title" : "Старший рекрутер",
-  "company" : "Ekleft",
-  "city" : "Москва",
-  "experience" : null,
-  "employment" : null,
-  "schedule" : null,
-  "salaryFrom" : null,
-  "salaryTo" : null,
-  "currency" : null,
-  "skills" : [ ],
-  "description" : "Высшее образование. Обязателен опыт работы в кадровом агентстве или аутстафф-компании. Отличное понимание специфики IT-рынка и современных технологий.  Подбор IT-специалистов уровня Middle / Senior (Backend, Frontend, Mobile Developers, <highlighttext>DevOps</highlighttext>, QA — manual/mobile, Data <highlighttext>Engineer</highlighttext>, аналитики и др.). ​​​​​​​",
-  "url" : "https://hh.ru/vacancy/127329123",
   "source" : "hh",
   "publishedAt" : null
 }, {
@@ -186,7 +186,7 @@
   "salaryTo" : null,
   "currency" : null,
   "skills" : [ ],
-  "description" : "Опыт работы с Git. Опыт работы с Ansible. Опыт работы с Kustomize, Helm. Опыт работы с Kubernetes/Openshift.  Создание и управление инструментами развертывания <highlighttext>DevOps</highlighttext> (Jenkins, Ansible, BitBucket). Управление конфигурациям сервисов: Syngx (Nginx), Kubernetes, Openshift, Kustomize. Проведение технологических и...",
+  "description" : "Опыт работы с Git. Опыт работы с Ansible. Опыт работы с Kustomize, Helm. Опыт работы с Kubernetes/Openshift (yaml).  Создание и управление инструментами развертывания <highlighttext>DevOps</highlighttext> (Jenkins, Ansible, BitBucket). Управление конфигурациям сервисов: Syngx (Nginx), Kubernetes, Openshift, Kustomize. Проведение технологических и...",
   "url" : "https://hh.ru/vacancy/128326900",
   "source" : "hh",
   "publishedAt" : null
@@ -1052,22 +1052,6 @@
   "skills" : [ ],
   "description" : "Опыт работы в области <highlighttext>DevOps</highlighttext> от 3х лет. Навыки написания скриптов (например, Bash, Python). Опыт работы с инструментами контейнеризации... Разработка и поддержка инфраструктуры для развертывания и мониторинга приложений в среде Kubernetes. Автоматизация процессов развертывания, тестирования и сборки приложений с...",
   "url" : "https://hh.ru/vacancy/126387038",
-  "source" : "hh",
-  "publishedAt" : null
-}, {
-  "id" : null,
-  "title" : "DevOps-инженер (Направление автоматизации и эксплуатации)",
-  "company" : "БЮРО 1440",
-  "city" : "Москва",
-  "experience" : null,
-  "employment" : null,
-  "schedule" : null,
-  "salaryFrom" : null,
-  "salaryTo" : null,
-  "currency" : null,
-  "skills" : [ ],
-  "description" : "Опыт работы от 2 лет в <highlighttext>DevOps</highlighttext>/SRE или смежных ролях. Глубокое понимание Kubernetes (включая сетевые политики через Cilium), управление... Настройкой и поддержкой CI/CD-пайплайнов с использованием GitLab CI, автоматизацией процессов сборки, тестирования и деплоя приложений. Управлением инфраструктурой на...",
-  "url" : "https://hh.ru/vacancy/128282913",
   "source" : "hh",
   "publishedAt" : null
 }, {
@@ -2416,6 +2400,22 @@
   "publishedAt" : null
 }, {
   "id" : null,
+  "title" : "PHP разработчик (в команду DevOps)",
+  "company" : "Leads",
+  "city" : "Москва",
+  "experience" : null,
+  "employment" : null,
+  "schedule" : null,
+  "salaryFrom" : 180000,
+  "salaryTo" : 250000,
+  "currency" : "RUR",
+  "skills" : [ ],
+  "description" : "Опыт коммерческой разработки от 3х лет, из них 1 год с продуктами на PHP. Умение работать с фреймворками (у... Обслуживание продуктовой разработки: настроить/починить CI/CD, помощь в проектировании, настройка дев-окружения. Внедрение и обновление продуктовых решений, например MariaDB...",
+  "url" : "https://hh.ru/vacancy/127818314",
+  "source" : "hh",
+  "publishedAt" : null
+}, {
+  "id" : null,
   "title" : "DevOps Инженер/Консультант (Senior)",
   "company" : "Амбрелла",
   "city" : "Москва",
@@ -2460,22 +2460,6 @@
   "skills" : [ ],
   "description" : "У тебя есть опыт работы в продуктовых кросс-функциональных командах в роли лида или в роли <highlighttext>инженера</highlighttext>. У тебя есть... Планировать этапы разработки сервисов. Описать профиль необходимых <highlighttext>инженеров</highlighttext> и участвовать в создании вакансий. Проводить технические интервью и принимать решения о...",
   "url" : "https://hh.ru/vacancy/123887074",
-  "source" : "hh",
-  "publishedAt" : null
-}, {
-  "id" : null,
-  "title" : "DevOps (Middle / Middle+)",
-  "company" : "ОНИН",
-  "city" : "Москва",
-  "experience" : null,
-  "employment" : null,
-  "schedule" : null,
-  "salaryFrom" : null,
-  "salaryTo" : null,
-  "currency" : null,
-  "skills" : [ ],
-  "description" : "Повышать уровень автоматизации админских задачах и/или процессов. Основной упор на Ansible и Bash. - условия для выстраивания приятных рабочих и... Поддерживать и развивать систему мониторинга/аллертинга. По большей части Zabbix с Grafana + немного Prometeus. *Вся обслуживаемая инфраструктура наша, никаких...",
-  "url" : "https://hh.ru/vacancy/127550734",
   "source" : "hh",
   "publishedAt" : null
 }, {
@@ -4796,6 +4780,22 @@
   "skills" : [ ],
   "description" : "Понимание принципов DevSecOps будет преимуществом. Знание цикла разработки ПО. Навыки установки/настройки/администрирования серверов на базе семейства ОС Linux (Debian... Устанавливать и настраивать ПО Solar appScreener на различных платформах. Принимать участие в цикле разработки дистрибутива ( => dev => test => maintenance => ). ",
   "url" : "https://hh.ru/vacancy/127941405",
+  "source" : "hh",
+  "publishedAt" : null
+}, {
+  "id" : null,
+  "title" : "Devops (senior)",
+  "company" : "WILDBERRIES",
+  "city" : "Москва",
+  "experience" : null,
+  "employment" : null,
+  "schedule" : null,
+  "salaryFrom" : null,
+  "salaryTo" : null,
+  "currency" : null,
+  "skills" : [ ],
+  "description" : "Имеете опыт администрирования Linux — уверенное владение командной строкой, понимание работы сети, процессов, памяти. Владеете опытом работы с Kubernetes — понимание архитектуры... Автоматизировать ручные операций процесса GitOps. Дорабатывать helm-чарты. Внедрять новые фичи Istio. Траблшутить проблемы на проде (Kubernetes, Istio).",
+  "url" : "https://hh.ru/vacancy/127941246",
   "source" : "hh",
   "publishedAt" : null
 } ]

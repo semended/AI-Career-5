@@ -32,6 +32,22 @@
   "publishedAt" : null
 }, {
   "id" : null,
+  "title" : "Специалист по автоматизированному тестированию\\Automation QA Engineer (Python)",
+  "company" : "Открытая мобильная платформа",
+  "city" : "Москва",
+  "experience" : null,
+  "employment" : null,
+  "schedule" : null,
+  "salaryFrom" : null,
+  "salaryTo" : null,
+  "currency" : null,
+  "skills" : [ ],
+  "description" : "Опыт написания API/UI автотестов на Python от 2-х лет (Pytest, Behave, Selenium). Опыт работы с мобильными устройствами от... Автотесты API на Python + requests. Автотесты UI web на Python + Selenium. Автотесты для мобильных устройств на Python +...",
+  "url" : "https://hh.ru/vacancy/124270690",
+  "source" : "hh",
+  "publishedAt" : null
+}, {
+  "id" : null,
   "title" : "QA Automation Engineer Java (AQA Java)",
   "company" : "RDP.RU",
   "city" : "Москва",
@@ -380,22 +396,6 @@
   "skills" : [ ],
   "description" : "Опыт ручного тестирования от 2-х лет (Frontend, Backend, API). Опыт написания автотестов на Java от 1.5 лет.  Тестирование API-интеграций, backend-сервисов. Тесное сотрудничество с разработчиками, аналитиками и DevOps-<highlighttext>инженерами</highlighttext>. Работа с системами отслеживания ошибок для регистрации...",
   "url" : "https://hh.ru/vacancy/128106802",
-  "source" : "hh",
-  "publishedAt" : null
-}, {
-  "id" : null,
-  "title" : "QA Automation Engineer (SDET, Java)",
-  "company" : "Bell Integrator",
-  "city" : "Москва",
-  "experience" : null,
-  "employment" : null,
-  "schedule" : null,
-  "salaryFrom" : null,
-  "salaryTo" : null,
-  "currency" : null,
-  "skills" : [ ],
-  "description" : "Опыт от 2-х лет на позиции Автотестировщика на Java. Обязателен опыт работы с Postgres и Cassandra. Владение JVM-языком...",
-  "url" : "https://hh.ru/vacancy/128095637",
   "source" : "hh",
   "publishedAt" : null
 } ]
