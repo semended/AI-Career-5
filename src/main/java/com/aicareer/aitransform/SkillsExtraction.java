@@ -21,6 +21,8 @@ public final class SkillsExtraction {
             System.getenv().getOrDefault("OLLAMA_HOST", "http://localhost:11434");
 
     private static final String SKILLS_RESOURCE = "skills.json";
+    private static final String DEFAULT_VACANCIES_RESOURCE =
+            "export/vacancies_top25_java_backend_developer.json"; // фиксированный файл вакансий
 
     private static final List<String> SKILL_LIST = loadSkillList();
 
@@ -109,22 +111,13 @@ public final class SkillsExtraction {
     }
 
     public static void main(String[] args) {
-        String defaultPath = "src/main/resources/samples/skills-extraction-sample.json";
-        String pathString;
-        if (args.length == 0) {
-            System.err.println("No arguments provided, using default sample file:");
-            System.err.println("  " + defaultPath);
-            pathString = defaultPath;
-        } else if (args.length == 1) {
-            pathString = args[0];
-        } else {
-            System.err.println("Usage: SkillsExtraction <path-to-vacancies-json>");
-            System.exit(1);
-            return;
-        }
+        String resource = args.length > 0 && !args[0].isBlank()
+                ? args[0]
+                : DEFAULT_VACANCIES_RESOURCE; // путь к файлу с вакансиями
 
-        Path path = Path.of(pathString);
-        Map<String, Integer> matrix = fromFile(path);
+        Map<String, Integer> matrix = resource.startsWith("export/")
+                ? fromResource(resource)
+                : fromFile(Path.of(resource));
         try {
             System.out.println(MAPPER.writerWithDefaultPrettyPrinter().writeValueAsString(matrix));
         } catch (JsonProcessingException e) {
