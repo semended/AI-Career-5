@@ -69,8 +69,10 @@ public final class SkillsExtraction {
                 + vacanciesJson
                 + "\n\nReturn only the JSON object with the skill flags.";
 
+        System.out.println("[AI] Строим матрицу навыков через модель...");
         String rawResponse = new OllamaClient(DEFAULT_OLLAMA_HOST)
                 .generate(DEFAULT_MODEL_PATH, prompt);
+        System.out.println("[AI] Ответ по навыкам получен, разбираем...");
 
         String jsonResponse = extractJson(rawResponse);
         try {

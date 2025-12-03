@@ -53,6 +53,7 @@ public class OllamaClient {
             String body = MAPPER.writeValueAsString(payload);
             HttpRequest request = HttpRequest.newBuilder(endpoint.resolve("api/generate"))
                     .header("Content-Type", "application/json")
+                    .timeout(Duration.ofSeconds(60))
                     .POST(HttpRequest.BodyPublishers.ofString(body, StandardCharsets.UTF_8))
                     .build();
 
@@ -66,8 +67,10 @@ public class OllamaClient {
                 return json.get("response").asText();
             }
             return response.body();
-        } catch (IOException | InterruptedException e) {
+        } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
+            throw new IllegalStateException("Model call was interrupted", e);
+        } catch (IOException e) {
             throw new IllegalStateException("Failed to call Ollama model", e);
         }
     }

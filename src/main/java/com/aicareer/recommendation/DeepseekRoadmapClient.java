@@ -44,6 +44,7 @@ public final class DeepseekRoadmapClient {
 
     public static String generateRoadmap(String prompt) {
         savePrompt(prompt);
+        System.out.println("[AI] Запрашиваем план развития у модели...");
         return executeInference(prompt);
     }
 
@@ -51,6 +52,7 @@ public final class DeepseekRoadmapClient {
         try {
             String raw = new OllamaClient(DEFAULT_OLLAMA_HOST)
                     .generate(DEFAULT_MODEL_PATH, prompt);
+            System.out.println("[AI] Ответ по плану получен, извлекаем текст...");
             return extractContent(raw);
         } catch (IllegalStateException e) {
             throw e;
