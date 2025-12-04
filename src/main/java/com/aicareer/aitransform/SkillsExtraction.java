@@ -64,12 +64,10 @@ public final class SkillsExtraction {
     }
 
     private static Map<String, Integer> requestFromModel(String vacanciesJson) {
-        // Простой промпт без лишних пояснений
         String prompt = ExtractionPrompt.build()
                 + "\n\nVacancies JSON (analyze them together and return only the skills matrix):\n"
                 + vacanciesJson
                 + "\n\nReturn only the JSON object with the skill flags.";
-
         System.out.println("[AI] Строим матрицу навыков через модель...");
         String rawResponse = new OpenRouterClient()
                 .generate(DEFAULT_MODEL_PATH, prompt);
@@ -108,15 +106,12 @@ public final class SkillsExtraction {
     }
 
     private static String extractJson(String text) {
-        // Если модель прислала готовый JSON
         try {
             MAPPER.readTree(text);
             return text;
         } catch (IOException ignored) {
-            // идём дальше
         }
 
-        // Часто ответ приходит внутри ```json ... ```
         int fenceStart = text.indexOf("```json");
         if (fenceStart >= 0) {
             int afterFence = text.indexOf('`', fenceStart + 7);
@@ -127,7 +122,6 @@ public final class SkillsExtraction {
             }
         }
 
-        // Вытаскиваем первое и последнее вхождение фигурных скобок
         int start = text.indexOf('{');
         int end = text.lastIndexOf('}');
         if (start == -1 || end == -1 || end <= start) {
