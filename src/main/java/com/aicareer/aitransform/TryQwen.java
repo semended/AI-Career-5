@@ -12,7 +12,7 @@ public class TryQwen {
 
   public static void main(String[] args) throws Exception {
 
-    String apiKey = System.getenv("OPENROUTER_API_KEY");
+    String apiKey = Config.API_KEY;
     System.out.println("Using API Key: " + apiKey);
     URL url = new URL("https://openrouter.ai/api/v1/chat/completions");
     HttpURLConnection con = (HttpURLConnection) url.openConnection();
