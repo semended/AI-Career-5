@@ -1,6 +1,6 @@
 package com.aicareer.recommendation;
 
-import com.aicareer.aitransform.OllamaClient;
+import com.aicareer.aitransform.OpenRouterClient;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
@@ -13,9 +13,10 @@ import java.nio.file.Path;
  */
 public final class DeepseekRoadmapClient {
     private static final ObjectMapper MAPPER = new ObjectMapper();
-    private static final String DEFAULT_MODEL_PATH = "deepseek-r1:8b";
-    private static final String DEFAULT_OLLAMA_HOST =
-            System.getenv().getOrDefault("OLLAMA_HOST", "http://localhost:11434");
+    private static final String DEFAULT_MODEL_PATH = System.getenv().getOrDefault(
+            "OPENROUTER_MODEL",
+            "qwen/qwen3-4b:free"
+    );
     private static final Path PROMPT_OUTPUT_PATH = Path.of("target", "roadmap-prompt.txt");
 
     private DeepseekRoadmapClient() {
@@ -30,7 +31,7 @@ public final class DeepseekRoadmapClient {
         System.out.println(response);
     }
 
-    private static void savePrompt(String prompt) {
+    public static void savePrompt(String prompt) {
         try {
             if (PROMPT_OUTPUT_PATH.getParent() != null) {
                 Files.createDirectories(PROMPT_OUTPUT_PATH.getParent());
@@ -42,10 +43,17 @@ public final class DeepseekRoadmapClient {
         }
     }
 
+    public static String generateRoadmap(String prompt) {
+        savePrompt(prompt);
+        System.out.println("[AI] Запрашиваем план развития у модели...");
+        return executeInference(prompt);
+    }
+
     private static String executeInference(String prompt) {
         try {
-            String raw = new OllamaClient(DEFAULT_OLLAMA_HOST)
+            String raw = new OpenRouterClient()
                     .generate(DEFAULT_MODEL_PATH, prompt);
+            System.out.println("[AI] Ответ по плану получен, извлекаем текст...");
             return extractContent(raw);
         } catch (IllegalStateException e) {
             throw e;
