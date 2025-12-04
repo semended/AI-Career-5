@@ -16,9 +16,10 @@ import java.util.Map;
 public final class SkillsExtraction {
     private static final ObjectMapper MAPPER = new ObjectMapper();
 
-    private static final String DEFAULT_MODEL_PATH = "deepseek-r1:8b";
-    private static final String DEFAULT_OLLAMA_HOST =
-            System.getenv().getOrDefault("OLLAMA_HOST", "http://localhost:11434");
+    private static final String DEFAULT_MODEL_PATH = System.getenv().getOrDefault(
+            "OPENROUTER_MODEL",
+            "qwen/qwen3-4b:free"
+    );
 
     private static final String SKILLS_RESOURCE = "skills.json";
     private static final String DEFAULT_VACANCIES_RESOURCE =
@@ -70,7 +71,7 @@ public final class SkillsExtraction {
                 + "\n\nReturn only the JSON object with the skill flags.";
 
         System.out.println("[AI] Строим матрицу навыков через модель...");
-        String rawResponse = new OllamaClient(DEFAULT_OLLAMA_HOST)
+        String rawResponse = new OpenRouterClient()
                 .generate(DEFAULT_MODEL_PATH, prompt);
         System.out.println("[AI] Ответ по навыкам получен, разбираем...");
 
