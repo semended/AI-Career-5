@@ -9,6 +9,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
 import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -32,6 +33,9 @@ public class OpenRouterClient {
             "OPENROUTER_TITLE",
             "AI-Career-5"
     );
+
+    private static final int MAX_RETRIES_ON_419 = 2;
+    private static final long RETRY_DELAY_SECONDS = 10L;
 
     private final HttpClient client = HttpClient.newBuilder()
             .connectTimeout(Duration.ofSeconds(10))
@@ -61,21 +65,34 @@ public class OpenRouterClient {
                     .POST(HttpRequest.BodyPublishers.ofString(body, StandardCharsets.UTF_8))
                     .build();
 
-            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-            if (response.statusCode() >= 300) {
-                throw new IllegalStateException("Model call failed: HTTP " + response.statusCode()
-                        + " -> " + response.body());
+            for (int attempt = 0; attempt <= MAX_RETRIES_ON_419; attempt++) {
+                HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+                if (response.statusCode() == 419 && attempt < MAX_RETRIES_ON_419) {
+                    System.err.println("[AI] Получен 419, повторяем запрос через "
+                            + RETRY_DELAY_SECONDS + " секунд (попытка " + (attempt + 2) + "/"
+                            + (MAX_RETRIES_ON_419 + 1) + ")");
+                    TimeUnit.SECONDS.sleep(RETRY_DELAY_SECONDS);
+                    continue;
+                }
+
+                if (response.statusCode() >= 300) {
+                    throw new IllegalStateException("Model call failed: HTTP " + response.statusCode()
+                            + " -> " + response.body());
+                }
+
+                JsonNode json = MAPPER.readTree(response.body());
+                JsonNode choices = json.path("choices");
+                if (choices.isArray() && !choices.isEmpty()) {
+                    JsonNode content = choices.get(0).path("message").path("content");
+                    if (!content.isMissingNode()) {
+                        return content.asText();
+                    }
+                }
+                return response.body();
             }
 
-            JsonNode json = MAPPER.readTree(response.body());
-            JsonNode choices = json.path("choices");
-            if (choices.isArray() && !choices.isEmpty()) {
-                JsonNode content = choices.get(0).path("message").path("content");
-                if (!content.isMissingNode()) {
-                    return content.asText();
-                }
-            }
-            return response.body();
+            throw new IllegalStateException("Model call failed after retries with 419 errors");
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
             throw new IllegalStateException("Model call was interrupted", e);
