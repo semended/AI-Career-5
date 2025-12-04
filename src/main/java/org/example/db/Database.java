@@ -9,7 +9,7 @@ public class Database {
 
     private static final String URL = System.getenv().getOrDefault(
             "DB_URL",
-            "jdbc:postgresql://localhost:5432/aicareer?sslmode=disable&applicationName=AI-Career-Client"
+            "jdbc:postgresql://localhost:5433/aicareer"
     );
     // Прямо требуем использовать роль/пользователя aicareer
     private static final String USER = "aicareer";
