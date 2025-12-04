@@ -2,5 +2,5 @@ package com.aicareer.aitransform;
 
 public final class Config {
 
-  public static final String API_KEY = "XXXX";
+  public static final String API_KEY = "sk-or-v";
 }
