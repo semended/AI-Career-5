@@ -38,10 +38,7 @@ public class OpenRouterClient {
             .build();
 
     public String generate(String model, String prompt) {
-        String apiKey = System.getenv("OPENROUTER_API_KEY");
-        if (apiKey == null || apiKey.isBlank()) {
-            throw new IllegalStateException("OPENROUTER_API_KEY is not set");
-        }
+        String apiKey = Config.API_KEY;
 
         String resolvedModel = (model == null || model.isBlank()) ? DEFAULT_MODEL : model.trim();
 
