@@ -133,7 +133,7 @@ def compute_positions(level: Dict[str, int]) -> Dict[str, Tuple[float, float]]:
     for lvl, nodes_on_level in levels_to_nodes.items():
         count = len(nodes_on_level)
         for i, node in enumerate(sorted(nodes_on_level)):
-            x = 0.0 if count == 1 else -1.2 + 2.4 * i / (count - 1)
+            x = 0.0 if count == 1 else -2.0 + 4.0 * i / (count - 1)
             y = -lvl
             positions[node] = (x, y)
 
@@ -255,10 +255,9 @@ def draw_graph(
     output: Path,
     title: str,
 ) -> None:
-    vacancies = nx.get_node_attributes(graph, "vacancies")
-    node_sizes = [80 + 3 * vacancies.get(node, 0) for node in graph.nodes()]
+    node_sizes = [280 for _ in graph.nodes()]
 
-    widths = edge_widths(graph)
+    widths = [2.4 for _ in graph.edges()]
 
     plt.figure(figsize=(10, 8))
 
@@ -343,7 +342,7 @@ def main() -> None:
     pruned_graph = build_pruned_graph(full_graph, sorted_edges)
     levels = compute_levels(pruned_graph)
     positions = compute_positions(levels)
-    title = f"{infer_role_title()} — {infer_user_name()}"
+    title = "Java Backend Developer"
 
     draw_graph(
         pruned_graph,
