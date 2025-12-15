@@ -249,11 +249,11 @@ def draw_graph(
     output: Path,
     title: str,
 ) -> None:
-  node_sizes = [280 for _ in graph.nodes()]
+  node_sizes = [320 for _ in graph.nodes()]
 
   widths = [1.8 for _ in graph.edges()]
 
-  plt.figure(figsize=(10, 8))
+  plt.figure(figsize=(12, 10))
 
   formatted_labels = {
     node: "machine\nlearning" if node == "machine_learning" else node.replace("_", " ")
@@ -289,6 +289,12 @@ def draw_graph(
     font_size=11,
     font_weight="bold",
     font_color=TEXT_COLOR,
+    bbox={
+      "boxstyle": "round,pad=0.35,rounding_size=0.15",
+      "facecolor": "white",
+      "edgecolor": "none",
+      "linewidth": 0,
+    },
   )
 
   legend_handles = [
@@ -327,18 +333,18 @@ def draw_graph(
   plt.legend(
     handles=legend_handles,
     loc="upper center",
-    bbox_to_anchor=(0.5, -0.08),
+    bbox_to_anchor=(0.5, -0.02),
     frameon=False,
     ncol=1,
   )
-  plt.title(title, fontsize=14, fontweight="bold", pad=20)
+  plt.title(title, fontsize=14, fontweight="bold", pad=20, y=0.98)
 
   plt.axis("off")
-  plt.margins(0.25)
-  plt.tight_layout(rect=(0, 0.1, 1, 1))
+  plt.margins(0.15)
+  plt.tight_layout(rect=(0, 0.1, 1, 0.95))
 
   output.parent.mkdir(parents=True, exist_ok=True)
-  plt.savefig(output, dpi=300, bbox_inches="tight")
+  plt.savefig(output, dpi=300, bbox_inches="tight", pad_inches=0.25)
   plt.close()
 
 
