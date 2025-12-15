@@ -363,9 +363,6 @@ def main() -> None:
     title=title,
   )
 
-  print(f"Skill graph saved to: {OUTPUT_DIR / 'skills_graph.png'}")
-  print(f"Mastery graph saved to: {OUTPUT_DIR / 'skills_graph_mastery.png'}")
-
 
 if __name__ == "__main__":
   main()

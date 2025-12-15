@@ -441,6 +441,7 @@ public class AppRunner {
     ComparisonResult comparison = Comparison.calculate(roleMatrix, profile.skills());
     Comparison.writeOutputs(comparison, STATUSES_PATH, SUMMARY_PATH);
 
+    Path skillGraphImage = runVisualizationScript();
 
     String prompt = RoadmapPromptBuilder.build(
         vacanciesResource,
@@ -450,29 +451,34 @@ public class AppRunner {
     );
 
     try {
-      String roadmap = DeepseekRoadmapClient.generateRoadmap(prompt);
+      String roadmap = DeepseekRoadmapClient.generateRoadmap(prompt, skillGraphImage);
       System.out.println("\n[AI RESPONSE]\n" + roadmap);
     } catch (Exception e) {
       System.err.println("[AI] Failed to get roadmap from model: " + e.getMessage());
     }
-
-    runVisualizationScript();
   }
 
-  private static void runVisualizationScript() {
+  private static Path runVisualizationScript() {
     Path scriptPath = Path.of("Visualisation/Visualisation/plotskillsgraph.py");
+    Path expectedImage = Path.of("Visualisation/target/visualisations/skills_graph.png");
 
     if (!Files.exists(scriptPath)) {
+      if (Files.exists(expectedImage)) {
+        return expectedImage;
+      }
       System.err.println("[VIS] Visualization script not found at " + scriptPath.toAbsolutePath());
-      return;
+      return null;
     }
 
     String pythonExecutable = resolvePythonExecutable();
 
     if (pythonExecutable == null) {
+      if (Files.exists(expectedImage)) {
+        return expectedImage;
+      }
       System.err.println(
           "[VIS] Python interpreter not found. Install Python 3 or add it to PATH to render the graph.");
-      return;
+      return null;
     }
 
     ProcessBuilder processBuilder = new ProcessBuilder(pythonExecutable, scriptPath.toString());
@@ -482,7 +488,10 @@ public class AppRunner {
       Process process = processBuilder.start();
       int exitCode = process.waitFor();
       if (exitCode == 0) {
-        System.out.println("[VIS] Skill graph visualization generated successfully.");
+        if (Files.exists(expectedImage)) {
+          return expectedImage;
+        }
+        System.err.println("[VIS] Visualization finished, but image not found at " + expectedImage.toAbsolutePath());
       } else {
         System.err.println("[VIS] Visualization script exited with code " + exitCode);
       }
@@ -492,6 +501,7 @@ public class AppRunner {
       Thread.currentThread().interrupt();
       System.err.println("[VIS] Visualization script was interrupted");
     }
+    return null;
   }
 
   private static String resolvePythonExecutable() {

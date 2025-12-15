@@ -4,7 +4,7 @@
   "c++" : 0,
   "docker" : 0,
   "hibernate" : 0,
-  "java" : 1,
+  "java" : 0,
   "javascript" : 0,
   "kafka" : 0,
   "kubernetes" : 0,
@@ -16,7 +16,7 @@
   "react" : 0,
   "spark" : 0,
   "spring" : 0,
-  "sql" : 0,
+  "sql" : 1,
   "terraform" : 0,
   "typescript" : 0
 }
