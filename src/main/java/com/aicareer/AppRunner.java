@@ -473,7 +473,15 @@ public class AppRunner {
       return;
     }
 
-    ProcessBuilder processBuilder = new ProcessBuilder("python", scriptPath.toString());
+    String pythonExecutable = resolvePythonExecutable();
+
+    if (pythonExecutable == null) {
+      System.err.println(
+          "[VIS] Python interpreter not found. Install Python 3 or add it to PATH to render the graph.");
+      return;
+    }
+
+    ProcessBuilder processBuilder = new ProcessBuilder(pythonExecutable, scriptPath.toString());
     processBuilder.inheritIO();
 
     try {
@@ -490,6 +498,29 @@ public class AppRunner {
       Thread.currentThread().interrupt();
       System.err.println("[VIS] Visualization script was interrupted");
     }
+  }
+
+  private static String resolvePythonExecutable() {
+    List<String> candidates = List.of("python3", "python", "py");
+
+    for (String candidate : candidates) {
+      ProcessBuilder check = new ProcessBuilder(candidate, "--version");
+      try {
+        Process process = check.start();
+        int exit = process.waitFor();
+        if (exit == 0) {
+          return candidate;
+        }
+      } catch (IOException e) {
+        // ignore and try next candidate
+      } catch (InterruptedException e) {
+        Thread.currentThread().interrupt();
+        System.err.println("[VIS] Interrupted while searching for python interpreter");
+        return null;
+      }
+    }
+
+    return null;
   }
 
   // ===== СТАРЫЕ ВСПОМОГАТЕЛЬНЫЕ МЕТОДЫ =====
