@@ -8,11 +8,14 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.time.Duration;
-import java.util.concurrent.TimeUnit;
+import java.util.Base64;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Lightweight client for sending prompts to the OpenAI chat completion API.
@@ -34,6 +37,10 @@ public class OpenAIClient {
             .build();
 
     public String generate(String model, String prompt) {
+        return generate(model, prompt, null);
+    }
+
+    public String generate(String model, String prompt, Path imagePath) {
         String apiKey = Config.getApiKey();
 
         String resolvedModel = (model == null || model.isBlank()) ? DEFAULT_MODEL : model.trim();
@@ -43,7 +50,7 @@ public class OpenAIClient {
         payload.put("max_tokens", 2048);
         payload.put("messages", List.of(Map.of(
                 "role", "user",
-                "content", prompt
+                "content", buildContent(prompt, imagePath)
         )));
 
         try {
@@ -89,6 +96,37 @@ public class OpenAIClient {
             throw new IllegalStateException("Model call was interrupted", e);
         } catch (IOException e) {
             throw new IllegalStateException("Failed to call OpenAI model", e);
+        }
+    }
+
+    private Object buildContent(String prompt, Path imagePath) {
+        if (imagePath == null) {
+            return prompt;
+        }
+
+        return List.of(
+                Map.of(
+                        "type", "text",
+                        "text", prompt
+                ),
+                Map.of(
+                        "type", "image_url",
+                        "image_url", Map.of("url", encodeImage(imagePath))
+                )
+        );
+    }
+
+    private String encodeImage(Path imagePath) {
+        if (!Files.exists(imagePath)) {
+            throw new IllegalStateException("Skill graph image not found: " + imagePath.toAbsolutePath());
+        }
+
+        try {
+            byte[] bytes = Files.readAllBytes(imagePath);
+            String base64 = Base64.getEncoder().encodeToString(bytes);
+            return "data:image/png;base64," + base64;
+        } catch (IOException e) {
+            throw new IllegalStateException("Failed to load skill graph image for the model", e);
         }
     }
 }
