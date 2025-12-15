@@ -20,104 +20,94 @@ public final class RoadmapPromptBuilder {
     private static final String SKILL_GRAPH_RESOURCE = "graphs/skills-graph.json";
     private static final String VACANCIES_RESOURCE = "export/vacancies_top25_java_backend_developer.json";
     private static final String RESOURCES_FOR_RECOMMENDATIONS = """
+            ## Computer Science (Harvard)
+
+            * CS50: Introduction to Computer Science — Harvard/edX (2)
+            * CS50's Introduction to Programming with Python — Harvard/edX (2)
+
             ## Java
 
-            * Введение в программирование на Java — Stepik (0)
             * Core Java — книга Хорстманн (1)
-
-            ## C++
-
-            * Современный C++ — Stepik (1)
-            * The C++ Programming Language — книга Страуструп (2)
+            * Effective Java — книга Джошуа Блоха (2)
 
             ## Python
 
-            * Python for Everybody — Coursera (0)
             * Learning Python — книга Марк Лутц (1)
+            * Fluent Python — книга Лучано Рамальо (2)
 
             ## JavaScript
 
-            * JavaScript для начинающих — Stepik (0)
             * Eloquent JavaScript — книга Хавербек (1)
+            * You Don't Know JS Yet — серия книг Кайла Симпсона (2)
 
-            ## SQL
+            ## SQL и данные
 
-            * Интерактивный тренажёр по SQL — Stepik (0)
             * SQL за 10 минут — книга Бен Форта (0)
+            * Designing Data-Intensive Applications — книга Клеппмана (2)
 
             ## Docker
 
-            * Docker: основы контейнеризации — Stepik (1)
+            * Docker Deep Dive — книга Найджел Поултон (1)
             * Docker Documentation — официальная документация (2)
-
-            ## C#
-
-            * Основы C# — Stepik (0)
-            * C# 8.0 и .NET Core — книга Троелсен (2)
-
-            ## PHP
-
-            * Основы PHP — Stepik (0)
-            * PHP Objects, Patterns, and Practice — книга (1)
 
             ## Spring
 
-            * Spring Framework от JetBrains — Coursera (1)
+            * Spring in Action — книга Крэйг Уоллс (1)
             * Spring Framework Documentation — официальная документация (2)
 
             ## Machine Learning
 
-            * Machine Learning (Andrew Ng) — Coursera (1)
             * Hands-On Machine Learning — книга Géron (2)
+            * Pattern Recognition and Machine Learning — книга Бишоп (2)
 
             ## React
 
-            * ReactJS: основы разработки — Stepik (1)
             * React Documentation — официальная документация (1)
+            * Epic React — курс от Kent C. Dodds (2)
 
             ## TypeScript
 
-            * TypeScript для начинающих — Stepik (0)
             * TypeScript Documentation — официальная документация (1)
+            * Programming TypeScript — книга Борис Чёрни (2)
 
             ## Kubernetes
 
-            * Architecting with Kubernetes — Coursera (2)
+            * The Kubernetes Book — книга Найджел Поултон (1)
             * Kubernetes Documentation — официальная документация (2)
 
             ## Terraform
 
-            * Terraform for Beginners — Coursera/Udemy (1)
+            * Terraform: Up & Running — книга Евгений Брикман (2)
             * Terraform Documentation — официальная документация (2)
 
             ## Linux
 
-            * Linux для начинающих — Stepik (0)
             * The Linux Command Line — книга (1)
+            * How Linux Works — книга Брайан Уорд (2)
 
             ## Hibernate
 
-            * Hibernate & JPA Fundamentals — Udemy (1)
+            * Hibernate in Action — книга Бауэр, Кинг (1)
             * Hibernate ORM Documentation — официальная документация (2)
 
             ## Apache Spark
 
-            * Big Data Analysis with Scala and Spark — Coursera (2)
+            * Learning Spark — книга Холдена Карау (2)
             * Apache Spark Documentation — официальная документация (2)
 
             ## Pandas
 
-            * Pandas: обработка данных в Python — Stepik (1)
             * Pandas Documentation — официальная документация (1)
+            * Effective Pandas — книга Мэтт Харрисон (2)
 
             ## Kafka
 
-            * Apache Kafka for Beginners — Coursera/Udemy (1)
+            * Kafka: The Definitive Guide — книга Неха Нархеде (2)
             * Apache Kafka Documentation — официальная документация (2)
 
             ## AWS
 
-            * AWS Cloud Practitioner Essentials — Coursera (1)
+            * AWS Certified Solutions Architect Official Study Guide — книга (2)
             * AWS Documentation — официальная документация (2)
             """;
 
@@ -156,6 +146,7 @@ public final class RoadmapPromptBuilder {
                 "Ты — карьерный консультант и планировщик обучения. Используй модель deepseek-r1:8b.",
                 "Данные ниже: матрица навыков пользователя, требования роли, ориентированный граф зависимостей навыков, список вакансий роли и список учебных ресурсов.",
                 "Задача: выдать краткий маршрут, который быстрее всего закроет дефицит навыков для целевой роли; более сильные рёбра графа ставь раньше в очереди.",
+                "Отдавай приоритет книгам, официальной документации и курсам вне Stepik/Coursera, в первую очередь материалам Harvard/CS50.",
                 "Для каждого шага выбери 1–2 ресурса из предложенного списка, которые лучше всего подходят под темы шага, и укажи их явно.",
                 "\nТекущие навыки пользователя (1 = владеет):\n" + formatJson(userMatrix)
                         + "\nСильные стороны: " + String.join(", ", userSkills),
