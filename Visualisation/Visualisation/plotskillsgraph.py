@@ -10,10 +10,11 @@ The script replicates the pruning/layout logic used in earlier experiments:
   2) Graph coloured by mastery (green) vs. required-to-learn (light blue).
 
 Usage:
-    python visualise/plot_skills_graphs.py
+    python Visualisation/Visualisation/plotskillsgraph.py
 
-Outputs are written to target/visualisations/skills_graph.png and
-skills_graph_mastery.png.
+The script works purely on local JSON files and does not contact any AI models
+or databases. Outputs are written to Visualisation/target/visualisations/
+skills_graph.png and skills_graph_mastery.png.
 """
 from __future__ import annotations
 
@@ -28,9 +29,12 @@ import networkx as nx
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 VISUALISATION_ROOT = Path(__file__).resolve().parents[1]
 
-GRAPH_PATH = VISUALISATION_ROOT / "graphs" / "skills-graph.json"
+GRAPH_PATH = PROJECT_ROOT / "src" / "main" / "resources" / "graphs" / "skills-graph.json"
 USER_MATRIX_PATH = PROJECT_ROOT / "src" / "main" / "resources" / "matrices" / "user_skill_matrix.json"
 DESIRED_MATRIX_PATH = PROJECT_ROOT / "src" / "main" / "resources" / "matrices" / "desired_role_matrix.json"
+SKILLS_REFERENCE_PATH = PROJECT_ROOT / "src" / "main" / "resources" / "skills.json"
+USERS_PATH = PROJECT_ROOT / "src" / "main" / "resources" / "test_users.json"
+PARAMETERS_PATH = PROJECT_ROOT / "Parameters.json"
 OUTPUT_DIR = VISUALISATION_ROOT / "target" / "visualisations"
 
 LIGHT_ORANGE = "#ffd8a6"
@@ -41,6 +45,11 @@ MISSING_COLOR = "#c9e3ff"   # light blue
 
 
 def load_graph() -> Tuple[nx.DiGraph, List[Tuple[str, str, int]]]:
+    if not GRAPH_PATH.exists():
+        raise FileNotFoundError(
+            f"Skill graph not found at {GRAPH_PATH}. Ensure the project resources are available."
+        )
+
     with GRAPH_PATH.open("r", encoding="utf-8") as f:
         data = json.load(f)
 
@@ -124,7 +133,7 @@ def compute_positions(level: Dict[str, int]) -> Dict[str, Tuple[float, float]]:
     for lvl, nodes_on_level in levels_to_nodes.items():
         count = len(nodes_on_level)
         for i, node in enumerate(sorted(nodes_on_level)):
-            x = 0.0 if count == 1 else -1.0 + 2.0 * i / (count - 1)
+            x = 0.0 if count == 1 else -2.0 + 4.0 * i / (count - 1)
             y = -lvl
             positions[node] = (x, y)
 
@@ -160,9 +169,39 @@ def load_matrix(path: Path) -> Dict[str, int]:
         return json.load(f)
 
 
+def load_skills_reference() -> List[str]:
+    with SKILLS_REFERENCE_PATH.open("r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+def load_users() -> List[Dict[str, str]]:
+    if not USERS_PATH.exists():
+        return []
+
+    with USERS_PATH.open("r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+def load_parameters() -> Dict:
+    if not PARAMETERS_PATH.exists():
+        return {}
+
+    with PARAMETERS_PATH.open("r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+def load_user_matrix(skills_reference: List[str]) -> Dict[str, int]:
+    return load_matrix(USER_MATRIX_PATH)
+
+
+def load_desired_matrix() -> Dict[str, int]:
+    return load_matrix(DESIRED_MATRIX_PATH)
+
+
 def classify_nodes(graph: nx.DiGraph) -> Dict[str, str]:
-    user_matrix = load_matrix(USER_MATRIX_PATH)
-    desired_matrix = load_matrix(DESIRED_MATRIX_PATH)
+    skills_reference = load_skills_reference()
+    user_matrix = load_user_matrix(skills_reference)
+    desired_matrix = load_desired_matrix()
 
     mastered = {skill for skill, flag in user_matrix.items() if flag == 1}
     required = {skill for skill, flag in desired_matrix.items() if flag == 1}
@@ -179,12 +218,46 @@ def classify_nodes(graph: nx.DiGraph) -> Dict[str, str]:
     return status
 
 
-def draw_graph(graph: nx.DiGraph, positions: Dict[str, Tuple[float, float]], *,
-               node_colors: Iterable[str], output: Path) -> None:
-    vacancies = nx.get_node_attributes(graph, "vacancies")
-    node_sizes = [80 + 3 * vacancies.get(node, 0) for node in graph.nodes()]
+def infer_user_name() -> str:
+    users = load_users()
+    if users:
+        user = users[0]
+        return user.get("name") or user.get("email") or "Пользователь"
+    return "Пользователь"
 
-    widths = edge_widths(graph)
+
+def infer_role_title() -> str:
+    parameters = load_parameters()
+    desired_matrix = load_desired_matrix()
+    desired_skills = {skill for skill, flag in desired_matrix.items() if flag == 1}
+
+    best_title = "Выбранная должность"
+    best_score = -1
+
+    for position in parameters.get("positions", []):
+        skills_map = position.get("skills", {})
+        required_skills = {skill for skill, flag in skills_map.items() if flag == 1}
+        if not required_skills:
+            continue
+        score = len(desired_skills & required_skills)
+        if score > best_score:
+            best_score = score
+            best_title = position.get("title", best_title)
+
+    return best_title
+
+
+def draw_graph(
+    graph: nx.DiGraph,
+    positions: Dict[str, Tuple[float, float]],
+    *,
+    node_colors: Iterable[str],
+    output: Path,
+    title: str,
+) -> None:
+    node_sizes = [280 for _ in graph.nodes()]
+
+    widths = [2.4 for _ in graph.edges()]
 
     plt.figure(figsize=(10, 8))
 
@@ -193,8 +266,8 @@ def draw_graph(graph: nx.DiGraph, positions: Dict[str, Tuple[float, float]], *,
         positions,
         node_size=node_sizes,
         alpha=0.95,
-        linewidths=1.5,
-        edgecolors=ORANGE_BORDER,
+        linewidths=0,
+        edgecolors="none",
         node_color=node_colors,
     )
 
@@ -209,13 +282,50 @@ def draw_graph(graph: nx.DiGraph, positions: Dict[str, Tuple[float, float]], *,
         edge_color=ORANGE_BORDER,
     )
 
+    label_positions = {node: (coords[0], coords[1] - 0.15) for node, coords in positions.items()}
     nx.draw_networkx_labels(
         graph,
-        positions,
+        label_positions,
         font_size=11,
         font_weight="bold",
         font_color=TEXT_COLOR,
     )
+
+    legend_handles = [
+        plt.Line2D(
+            [],
+            [],
+            marker="o",
+            linestyle="",
+            markersize=10,
+            markerfacecolor=MISSING_COLOR,
+            markeredgecolor="none",
+            label="навык, требующий освоения",
+        ),
+        plt.Line2D(
+            [],
+            [],
+            marker="o",
+            linestyle="",
+            markersize=10,
+            markerfacecolor=MASTERED_COLOR,
+            markeredgecolor="none",
+            label="освоенный навык",
+        ),
+        plt.Line2D(
+            [],
+            [],
+            marker="o",
+            linestyle="",
+            markersize=10,
+            markerfacecolor=LIGHT_ORANGE,
+            markeredgecolor="none",
+            label="навыки не требующиеся для выбранной должности",
+        ),
+    ]
+
+    plt.legend(handles=legend_handles, loc="upper right", bbox_to_anchor=(1.22, 1), frameon=False)
+    plt.title(title, fontsize=14, fontweight="bold", pad=20)
 
     plt.axis("off")
     plt.margins(0.25)
@@ -232,12 +342,14 @@ def main() -> None:
     pruned_graph = build_pruned_graph(full_graph, sorted_edges)
     levels = compute_levels(pruned_graph)
     positions = compute_positions(levels)
+    title = "Java Backend Developer"
 
     draw_graph(
         pruned_graph,
         positions,
         node_colors=[LIGHT_ORANGE for _ in pruned_graph.nodes()],
         output=OUTPUT_DIR / "skills_graph.png",
+        title=title,
     )
 
     statuses = classify_nodes(pruned_graph)
@@ -253,7 +365,11 @@ def main() -> None:
         positions,
         node_colors=color_map,
         output=OUTPUT_DIR / "skills_graph_mastery.png",
+        title=title,
     )
+
+    print(f"Skill graph saved to: {OUTPUT_DIR / 'skills_graph.png'}")
+    print(f"Mastery graph saved to: {OUTPUT_DIR / 'skills_graph_mastery.png'}")
 
 
 if __name__ == "__main__":
